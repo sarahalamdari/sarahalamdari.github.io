@@ -1,0 +1,82 @@
+/* General body styles */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    padding-top: 100px;
+    background-color: white;
+    color: black;
+    text-align: center;
+}
+
+h1 {
+    font-weight: normal;
+    font-size: 44px;
+    margin: 0.4em 0;
+}
+
+hr {
+    border: 0;
+    height: 2px;
+    background-color: transparent;
+}
+
+/* Header */
+header {
+    padding: 1em 0;
+    padding-bottom: 0;
+}
+
+/* Links */
+a {
+    text-decoration: underline;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* Main content */
+main {
+    padding: 1em;
+    padding-top: 0;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 2;
+}
+
+/* Prose pages (About, etc.) */
+main.prose {
+    text-align: left;
+    max-width: 620px;
+    line-height: 1.7;
+}
+
+main.prose h1 {
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    padding: 1em 0;
+}
+
+img.circle {
+    border-radius: 50%;
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+}
+
+@media all and (max-width: 600px) {
+    body {
+        padding-top: 50px;
+    }
+    h1 {
+        font-size: 36px;
+    }
+    main {
+        font-size: 20px;
+    }
+}
