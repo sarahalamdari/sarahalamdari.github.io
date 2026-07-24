@@ -2,32 +2,66 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sarah Alamdari, PhD</title>
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Sarah Alamdari — Generative AI for Protein Design</title>
+    <meta name="description" content="Sarah Alamdari is a Senior Applied Scientist at Microsoft Research building generative machine learning models for protein design, including EvoDiff and the Dayhoff Atlas.">
+    <meta name="keywords" content="Sarah Alamdari, protein design, generative AI, machine learning, EvoDiff, Dayhoff, protein language models, computational biology, Microsoft Research">
+    <meta name="author" content="Sarah Alamdari">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Sarah Alamdari — Generative AI for Protein Design">
+    <meta property="og:description" content="Senior Applied Scientist at Microsoft Research building generative models for protein design.">
+    <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css?v=2">
 </head>
 <body>
-    <header>
-        <img src="img/profile.jpg" alt="Sarah Alamdari" class="circle">
-        <h1>Sarah Alamdari, PhD</h1>
-    </header>
-    <main>
-        <p>Protein Design, Generative Machine Learning, Computational Biology, Molecular Simulation</p>
-        <p><b>Senior Applied Scientist at Microsoft Research</b></p>
-        <hr>
-        <p><a href="about.html">About Me</a></p>
-        <p><a href="research.html">Research</a></p>
-        <p><a href="publications.html">Publications</a></p>
-        <p><a href="https://scholar.google.com/">Google Scholar</a></p>
-        <p><a href="https://github.com/salamdari">GitHub</a></p>
-        <p><a href="https://www.linkedin.com/">LinkedIn</a></p>
-        <p><a href="https://twitter.com/">Twitter</a></p>
-        <p><a href="mailto:salamda1@uw.edu">Email</a></p>
-    </main>
-    <footer></footer>
+    <div class="container">
+        <div class="home_menu">
+            <p class="home_title">Sarah Alamdari</p>
+            <nav class="links">
+                <a href="#">CV</a>
+                <a href="https://scholar.google.com/citations?user=AV7XVKMAAAAJ&hl=en">Scholar</a>
+                <a href="https://github.com/sarahalamdari">GitHub</a>
+            </nav>
+        </div>
+
+        <div class="about">
+            <p class="home_body">
+                I am a Senior Applied Scientist at <a href="https://www.microsoft.com/en-us/research/">Microsoft Research</a> on the <a href="https://www.microsoft.com/en-us/research/theme/biomedical-ml/">BioML team</a>, where I build <a href="topics/protein-design.html">generative AI models that design new, functional proteins</a> to advance human health. I care about understanding the fundamental forces that drive biological systems, and using that understanding to rationally design efficient, bioinspired technologies, faster than we ever could before.
+            </p>
+            <p class="home_body">
+                I completed my Ph.D. in Chemical Engineering at the <a href="https://uwprg.github.io/">University of Washington</a>, where I was an <a href="topics/nsf-grfp.html">NSF GRFP Fellow</a>. My research focused on <a href="topics/enhanced-sampling.html">developing enhanced sampling methods</a> to probe the interfacial phenomena that govern biology at the microscale.
+            </p>
+        </div>
+
+        <section class="areas">
+            <a class="area_card" href="topics/protein-design.html" style="background-image:url('img/area-protein-design.svg')">
+                <span class="area_card_inner">
+                    <span class="area_card_title">Generative models for protein design</span>
+                    <span class="area_card_desc">Diffusion and language models that generate new proteins &mdash; EvoDiff and the Dayhoff Atlas.</span>
+                </span>
+            </a>
+            <a class="area_card" href="topics/benchmarks.html" style="background-image:url('img/area-benchmarks.svg')">
+                <span class="area_card_inner">
+                    <span class="area_card_title">Benchmarks and evaluation for protein ML</span>
+                    <span class="area_card_desc">Making protein machine learning measurable and reproducible &mdash; FLIP2 and ProtNote.</span>
+                </span>
+            </a>
+            <a class="area_card" href="topics/enhanced-sampling.html" style="background-image:url('img/area-simulation.svg')">
+                <span class="area_card_inner">
+                    <span class="area_card_title">Molecular simulation and biophysics</span>
+                    <span class="area_card_desc">Enhanced sampling to uncover the structure and energetics of biomolecules at interfaces.</span>
+                </span>
+            </a>
+        </section>
+
+        <footer class="contact">
+            <span class="contact_label">Get in touch</span>
+            <a href="https://www.linkedin.com/">LinkedIn</a>
+            <a href="https://twitter.com/SarahAlamdari">Twitter</a>
+            <a href="mailto:salamda1@uw.edu">Email</a>
+        </footer>
+    </div>
 </body>
 </html>

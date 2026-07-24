@@ -3,22 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <title>Publications — Sarah Alamdari</title>
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta name="description" content="Publications by Sarah Alamdari on generative AI for protein design, protein machine learning, and molecular simulation.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css?v=2">
 </head>
 <body>
-    <header>
-        <h1>Publications</h1>
-    </header>
-    <main class="prose">
-        <p>Placeholder — add publication list here, or link to <a href="https://scholar.google.com/">Google Scholar</a>.</p>
-        <hr>
-        <p><a href="index.html">← Home</a></p>
-    </main>
-    <footer></footer>
+    <div class="container">
+        <p class="back"><a href="index.html">&larr; Sarah Alamdari</a></p>
+
+        <h1 class="topic_title">Publications</h1>
+        <p class="topic_body">
+            Selected peer-reviewed articles and preprints. See <a href="https://scholar.google.com/citations?user=AV7XVKMAAAAJ&hl=en">Google Scholar</a> for the complete and most current list.
+        </p>
+        <p class="pub_legend"><b class="me_first">Underlined</b> denotes first-author work &middot; <sup>*</sup> equal contribution &middot; <sup>&dagger;</sup> corresponding author.</p>
+
+        <h2 class="section_heading">Generative AI for protein design</h2>
+        <ul class="papers papers_thumbs">
+            <li>
+                <a class="paper_thumb" href="https://www.biorxiv.org/content/10.1101/2025.02.27.640681v1"><img src="img/papers/protease.png" alt="Figure from Deep learning guided design of protease substrates"></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://www.biorxiv.org/content/10.1101/2025.02.27.640681v1">Deep learning guided design of protease substrates</a></div>
+                    <div class="paper_meta">C Martin-Alonso<sup>*</sup>, <b class="me_first">S Alamdari</b><sup>*</sup>, TS Samad, KK Yang, SN Bhatia<sup>&dagger;</sup>, AP Amini<sup>&dagger;</sup> &middot; bioRxiv, 2025</div>
+                    <div class="paper_links"><a href="https://www.biorxiv.org/content/10.1101/2025.02.27.640681v1">Paper</a><a href="https://www.microsoft.com/en-us/research/publication/deep-learning-guided-design-of-protease-substrates/">Website</a><a href="https://news.mit.edu/2026/ai-generated-sensors-open-new-paths-early-cancer-detection">Press</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb" href="https://www.biorxiv.org/content/10.1101/2025.07.21.665991"><img src="img/papers/dayhoff.jpg" alt="Figure from The Dayhoff Atlas"></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://www.biorxiv.org/content/10.1101/2025.07.21.665991">The Dayhoff Atlas: scaling sequence diversity for improved protein generation</a></div>
+                    <div class="paper_meta">KK Yang<sup>*</sup>, <b class="me_first">S Alamdari</b><sup>*</sup>, AJ Lee<sup>*</sup>, K Kaymak-Loveless, S Char, G Brixi, et al., N Tenenholtz<sup>&dagger;</sup>, AP Amini<sup>&dagger;</sup> &middot; bioRxiv, 2025</div>
+                    <div class="paper_links"><a href="https://www.biorxiv.org/content/10.1101/2025.07.21.665991">Paper</a><a href="https://github.com/microsoft/dayhoff">Code</a><a href="https://www.microsoft.com/en-us/research/articles/the-dayhoff-atlas/">Website</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb paper_thumb_fallback" href="https://doi.org/10.1016/j.sbi.2025.103018"><img src="img/area-protein-design.svg" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1016/j.sbi.2025.103018">Toward deep learning sequence&ndash;structure co-generation for protein design</a></div>
+                    <div class="paper_meta">C Wang, <b>S Alamdari</b>, C Domingo-Enrich, AP Amini, KK Yang &middot; Current Opinion in Structural Biology, 2025</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1016/j.sbi.2025.103018">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb" href="https://www.nature.com/articles/s41467-024-45051-2"><img src="img/papers/foldingdiff.png" alt="Figure from Protein structure generation via folding diffusion"></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://www.nature.com/articles/s41467-024-45051-2">Protein structure generation via folding diffusion</a></div>
+                    <div class="paper_meta">KE Wu, KK Yang, R van den Berg, <b>S Alamdari</b>, JY Zou, AX Lu, AP Amini &middot; Nature Communications, 2024</div>
+                    <div class="paper_links"><a href="https://www.nature.com/articles/s41467-024-45051-2">Paper</a><a href="https://github.com/microsoft/foldingdiff">Code</a><a href="https://www.microsoft.com/en-us/research/publication/protein-structure-generation-via-folding-diffusion/">Website</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb" href="https://www.biorxiv.org/content/10.1101/2023.09.11.556673v2"><img src="img/papers/evodiff.jpg" alt="Figure from EvoDiff"></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://www.biorxiv.org/content/10.1101/2023.09.11.556673v2">Protein generation with evolutionary diffusion: sequence is all you need</a></div>
+                    <div class="paper_meta"><b class="me_first">S Alamdari</b>, N Thakkar, R van den Berg, N Tenenholtz, B Strome, et al. &middot; bioRxiv, 2023</div>
+                    <div class="paper_note">Updated with experimental validation of generated proteins.</div>
+                    <div class="paper_links"><a href="https://www.biorxiv.org/content/10.1101/2023.09.11.556673v2">Paper</a><a href="https://github.com/microsoft/evodiff">Code</a><a href="https://www.microsoft.com/en-us/research/publication/protein-generation-with-evolutionary-diffusion-sequence-is-all-you-need/">Website</a><a href="https://techcrunch.com/2023/09/14/microsoft-open-sources-evodiff-a-novel-protein-generating-ai/">Press</a></div>
+                </div>
+            </li>
+        </ul>
+
+        <h2 class="section_heading">Benchmarks and evaluation for protein ML</h2>
+        <ul class="papers papers_thumbs">
+            <li>
+                <a class="paper_thumb paper_thumb_fallback" href="https://www.biorxiv.org/content/10.1101/2026.02.23.707496"><img src="img/area-benchmarks.svg" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://www.biorxiv.org/content/10.1101/2026.02.23.707496">FLIP2: Expanding protein fitness landscape benchmarks for real-world machine learning applications</a></div>
+                    <div class="paper_meta">K Didi, <b>S Alamdari</b>, AX Lu, B Wittmann, KE Johnston, AP Amini, A Madani, et al. &middot; bioRxiv, 2026</div>
+                    <div class="paper_note">Oral presentation at ICML 2026 (168 of 23,918 submissions, ~top 3%).</div>
+                    <div class="paper_links"><a href="https://www.biorxiv.org/content/10.1101/2026.02.23.707496">Paper</a><a href="https://www.microsoft.com/en-us/research/publication/flip2-expanding-protein-fitness-landscape-benchmarks-for-real-world-machine-learning-applications/">Website</a><a href="https://flip.protein.properties/">Benchmark</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb paper_thumb_fallback" href="https://doi.org/10.1016/j.sbi.2026.103272"><img src="img/area-benchmarks.svg" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1016/j.sbi.2026.103272">Closing the loop: Experimentally validated methods in artificial intelligence&ndash;driven protein design</a></div>
+                    <div class="paper_meta">CW Kosonocky, <b>S Alamdari</b>, KK Yang, AP Amini &middot; Current Opinion in Structural Biology, 2026</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1016/j.sbi.2026.103272">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb paper_thumb_fallback" href="https://doi.org/10.1093/bioinformatics/btaf170"><img src="img/area-benchmarks.svg" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1093/bioinformatics/btaf170">ProtNote: a multimodal method for protein&ndash;function annotation</a></div>
+                    <div class="paper_meta">S Char, N Corley, <b>S Alamdari</b>, KK Yang, AP Amini &middot; Bioinformatics, 2025</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1093/bioinformatics/btaf170">Paper</a><a href="https://github.com/microsoft/protnote">Code</a><a href="https://www.microsoft.com/en-us/research/publication/protnote-a-multimodal-method-for-protein-function-annotation/">Website</a></div>
+                </div>
+            </li>
+        </ul>
+
+        <h2 class="section_heading">Molecular simulation and biophysics</h2>
+        <ul class="papers papers_thumbs">
+            <li>
+                <a class="paper_thumb paper_thumb_fallback" href="https://doi.org/10.1021/acs.jpcb.3c02180"><img src="img/papers/peptoid-heterogeneity.jpg" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1021/acs.jpcb.3c02180">Origins of conformational heterogeneity in peptoid helices formed by chiral N-1-phenylethyl sidechains</a></div>
+                    <div class="paper_meta"><b class="me_first">S Alamdari</b>, J Pfaendtner &middot; The Journal of Physical Chemistry B, 2023</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1021/acs.jpcb.3c02180">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb paper_thumb_fallback" href="https://doi.org/10.1021/acs.jpcb.3c02181"><img src="img/papers/peptoid-thermo.jpg" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1021/acs.jpcb.3c02181">Thermodynamic basis for the stabilization of helical peptoids by chiral sidechains</a></div>
+                    <div class="paper_meta"><b class="me_first">S Alamdari</b>, K Torkelson, X Wang, CL Chen, AL Ferguson, J Pfaendtner &middot; The Journal of Physical Chemistry B, 2023</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1021/acs.jpcb.3c02181">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb paper_thumb_fallback" href="https://doi.org/10.1021/acs.biomac.3c00133"><img src="img/papers/peptoid-nanosheets.jpg" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1021/acs.biomac.3c00133">Computational and experimental determination of the properties, structure, and stability of peptoid nanosheets and nanotubes</a></div>
+                    <div class="paper_meta">M Zhao, S Zhang, R Zheng, <b>S Alamdari</b>, CJ Mundy, J Pfaendtner, et al. &middot; Biomacromolecules, 2023</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1021/acs.biomac.3c00133">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb paper_thumb_fallback" href="https://doi.org/10.1021/acs.langmuir.2c00780"><img src="img/papers/silicatein.jpg" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1021/acs.langmuir.2c00780">Peptide mimic of the marine sponge protein silicatein fabricates ultrathin nanosheets of silicon dioxide and titanium dioxide</a></div>
+                    <div class="paper_meta">K Strunge, N Hoinkis, H Lutz, <b>S Alamdari</b>, SJ Roeters, H Lu, J Pfaendtner, et al. &middot; Langmuir, 2022</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1021/acs.langmuir.2c00780">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb paper_thumb_fallback" href="https://doi.org/10.1021/acs.biomac.1c01385"><img src="img/papers/peptoid-selfassembly.jpg" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1021/acs.biomac.1c01385">Hierarchical self-assembly pathways of peptoid helices and sheets</a></div>
+                    <div class="paper_meta">M Zhao, KJ Lachowski, S Zhang, <b>S Alamdari</b>, J Sampath, P Mu, CJ Mundy, et al. &middot; Biomacromolecules, 2022</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1021/acs.biomac.1c01385">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb paper_thumb_fallback" href="https://doi.org/10.1093/protein/gzab031"><img src="img/papers/e1-substitution.jpg" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1093/protein/gzab031">Substitution of distal and active site residues reduces product inhibition of E1 from Acidothermus cellulolyticus</a></div>
+                    <div class="paper_meta">SR Summers<sup>*</sup>, <b class="me_first">S Alamdari</b><sup>*</sup>, CJ Kraft, R Brunecky, J Pfaendtner, JL Kaar &middot; Protein Engineering, Design and Selection, 2021</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1093/protein/gzab031">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb paper_thumb_fallback" href="https://doi.org/10.1007/978-3-030-62144-1_6"><img src="img/papers/pbmetad-review.jpg" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1007/978-3-030-62144-1_6">Efficient sampling of high-dimensional free energy landscapes: a review of parallel bias metadynamics</a></div>
+                    <div class="paper_meta"><b class="me_first">S Alamdari</b>, J Sampath, A Prakash, LD Gibson, J Pfaendtner &middot; Foundations of Molecular Modeling and Simulation, 2021</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1007/978-3-030-62144-1_6">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb paper_thumb_fallback" href="https://doi.org/10.1021/acs.langmuir.0c02063"><img src="img/papers/air-water.jpg" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1021/acs.langmuir.0c02063">Orientation and conformation of proteins at the air&ndash;water interface from integrative molecular dynamics simulations and sum frequency generation spectroscopy</a></div>
+                    <div class="paper_meta"><b class="me_first">S Alamdari</b>, SJ Roeters, TW Golbek, L Schmüser, T Weidner, J Pfaendtner &middot; Langmuir, 2020</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1021/acs.langmuir.0c02063">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb paper_thumb_fallback" href="https://doi.org/10.1021/acs.chemmater.0c02696"><img src="img/papers/closing-gap.jpg" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1021/acs.chemmater.0c02696">Closing the gap between modeling and experiments in the self-assembly of biomolecules at interfaces and in solution</a></div>
+                    <div class="paper_meta">J Sampath, <b>S Alamdari</b>, J Pfaendtner &middot; Chemistry of Materials, 2020</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1021/acs.chemmater.0c02696">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb paper_thumb_fallback" href="https://doi.org/10.1021/acs.jpcb.0c04955"><img src="img/papers/martini-peptoids.jpg" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1021/acs.jpcb.0c04955">MARTINI-compatible coarse-grained model for the mesoscale simulation of peptoids</a></div>
+                    <div class="paper_meta">M Zhao, J Sampath, <b>S Alamdari</b>, G Shen, CL Chen, CJ Mundy, et al. &middot; The Journal of Physical Chemistry B, 2020</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1021/acs.jpcb.0c04955">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb paper_thumb_fallback" href="https://doi.org/10.1021/acssuschemeng.0c03282"><img src="img/papers/endoglucanase.jpg" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1021/acssuschemeng.0c03282">Enhanced activity and stability of Acidothermus cellulolyticus endoglucanase 1 in ionic liquids via engineering active site residues and non-native disulfide bonds</a></div>
+                    <div class="paper_meta">S Summers, C Kraft, <b>S Alamdari</b>, J Pfaendtner, JL Kaar &middot; ACS Sustainable Chemistry &amp; Engineering, 2020</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1021/acssuschemeng.0c03282">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb paper_thumb_fallback" href="https://doi.org/10.1021/jacs.9b11617"><img src="img/papers/car9.jpg" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1021/jacs.9b11617">Sequence&ndash;structure&ndash;binding relationships reveal adhesion behavior of the Car9 solid-binding peptide</a></div>
+                    <div class="paper_meta">B Hellner, <b>S Alamdari</b>, H Pyles, S Zhang, A Prakash, KG Sprenger, et al. &middot; Journal of the American Chemical Society, 2020</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1021/jacs.9b11617">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb paper_thumb_fallback" href="https://doi.org/10.1039/C9ME00159J"><img src="img/papers/osteocalcin.jpg" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1039/C9ME00159J">Impact of glutamate carboxylation in the adsorption of the &alpha;-1 domain of osteocalcin to hydroxyapatite and titania</a></div>
+                    <div class="paper_meta"><b class="me_first">S Alamdari</b>, J Pfaendtner &middot; Molecular Systems Design &amp; Engineering, 2020</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1039/C9ME00159J">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb paper_thumb_fallback" href="https://doi.org/10.1039/C8CP04533J"><img src="img/papers/antifreeze.jpg" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1039/C8CP04533J">Ice-binding site of surface-bound type III antifreeze protein partially decoupled from water</a></div>
+                    <div class="paper_meta">D Verreault, <b>S Alamdari</b>, SJ Roeters, R Pandey, J Pfaendtner, T Weidner &middot; Physical Chemistry Chemical Physics, 2018</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1039/C8CP04533J">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb paper_thumb_fallback" href="https://www.nature.com/articles/ncomms10110"><img src="img/papers/spin-orbit.jpg" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://www.nature.com/articles/ncomms10110">Spin-orbit engineering in transition metal dichalcogenide alloy monolayers</a></div>
+                    <div class="paper_meta">G Wang, C Robert, A Suslu, B Chen, S Yang, <b>S Alamdari</b>, IC Gerber, et al. &middot; Nature Communications, 2015</div>
+                    <div class="paper_links"><a href="https://www.nature.com/articles/ncomms10110">Paper</a></div>
+                </div>
+            </li>
+        </ul>
+    </div>
 </body>
 </html>
