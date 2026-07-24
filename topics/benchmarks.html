@@ -2,39 +2,64 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Benchmarks and Evaluation for Protein ML — Sarah Alamdari</title>
+    <title>Learning Protein Function — Sarah Alamdari</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../styles.css?v=2">
-</head>
+    <style>
+        :root { --blue: #9a7420; --blue-dark: #7d5e17; }
+        .topic_title { color: #7d5e17; }
+    </style></head>
 <body>
     <div class="container">
         <p class="back"><a href="../index.html">&larr; Sarah Alamdari</a></p>
 
-        <h1 class="topic_title">Benchmarks and Evaluation for Protein ML</h1>
+        <h1 class="topic_title">Learning Protein Function</h1>
 
         <p class="topic_body">
-            Progress in protein machine learning depends on being able to measure it.
-            I build benchmarks and evaluation tools that make protein models
-            comparable, reproducible, and grounded in real-world design tasks &mdash;
-            from fitness landscape prediction to protein&ndash;function annotation.
+            Building better protein models only matters if we can connect them to
+            biological function. I develop methods to predict, annotate, and
+            benchmark protein function &mdash; from fitness landscape prediction to
+            multimodal protein&ndash;function annotation &mdash; so that protein
+            models stay comparable, reproducible, and grounded in real-world tasks.
         </p>
 
-        <p class="papers_heading">Relevant papers</p>
-        <ul class="papers">
+        <p class="papers_heading">Publications</p>
+        <ul class="papers papers_thumbs">
             <li>
-                <div class="paper_title"><a href="https://www.biorxiv.org/content/10.1101/2026.02.23.707496">FLIP2: Expanding protein fitness landscape benchmarks for real-world machine learning applications</a></div>
-                <div class="paper_meta">K Didi, S Alamdari, AX Lu, et al. &middot; bioRxiv, 2026</div>
+                <a class="paper_thumb paper_thumb_fallback" href="https://doi.org/10.64898/2026.02.23.707496"><img src="../img/area-benchmarks.svg" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.64898/2026.02.23.707496">FLIP2: Expanding protein fitness landscape benchmarks for real-world machine learning applications</a></div>
+                    <div class="paper_meta">K Didi, <b>S Alamdari</b>, AX Lu, B Wittmann, KE Johnston, AP Amini, A Madani, M Czeneszew, C Dallago, KK Yang &middot; bioRxiv, 2026</div>
+                    <div class="paper_note">Oral presentation at ICML 2026 (168 of 23,918 submissions, ~top 3%).</div>
+                    <div class="paper_links"><a href="https://doi.org/10.64898/2026.02.23.707496">Paper</a><a href="https://github.com/J-SNACKKB/FLIP">Code</a><a href="https://flip.protein.properties/">Website</a></div>
+                </div>
             </li>
             <li>
-                <div class="paper_title"><a href="https://doi.org/10.1093/bioinformatics/btaf170">ProtNote: a multimodal method for protein&ndash;function annotation</a></div>
-                <div class="paper_meta">S Char, N Corley, S Alamdari, KK Yang, AP Amini &middot; Bioinformatics, 2025</div>
+                <a class="paper_thumb paper_thumb_fallback" href="https://doi.org/10.1016/j.sbi.2026.103272"><img src="../img/area-benchmarks.svg" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1016/j.sbi.2026.103272">Closing the loop: Experimentally validated methods in artificial intelligence&ndash;driven protein design</a></div>
+                    <div class="paper_meta">CW Kosonocky, <b>S Alamdari</b>, KK Yang, AP Amini &middot; Current Opinion in Structural Biology, 2026</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1016/j.sbi.2026.103272">Paper</a></div>
+                </div>
             </li>
             <li>
-                <div class="paper_title"><a href="https://doi.org/10.1016/j.sbi.2026.103272">Closing the loop: Experimentally validated methods in artificial intelligence&ndash;driven protein design</a></div>
-                <div class="paper_meta">CW Kosonocky, S Alamdari, KK Yang, AP Amini &middot; Current Opinion in Structural Biology, 2026</div>
+                <a class="paper_thumb paper_thumb_fallback" href="https://doi.org/10.1093/bioinformatics/btaf170"><img src="../img/area-benchmarks.svg" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1093/bioinformatics/btaf170">ProtNote: a multimodal method for protein&ndash;function annotation</a></div>
+                    <div class="paper_meta">S Char, N Corley, <b>S Alamdari</b>, KK Yang, AP Amini &middot; Bioinformatics, 2025</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1093/bioinformatics/btaf170">Paper</a><a href="https://github.com/microsoft/protnote">Code</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb" href="https://www.nature.com/articles/s41467-025-67226-1"><img src="../img/papers/protease.png" alt="Figure from Deep learning guided design of protease substrates"></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://www.nature.com/articles/s41467-025-67226-1">Deep learning guided design of protease substrates</a></div>
+                    <div class="paper_meta">C Martin-Alonso<sup>*</sup>, <b class="me_first">S Alamdari</b><sup>*</sup>, TS Samad, KK Yang, SN Bhatia<sup>&dagger;</sup>, AP Amini<sup>&dagger;</sup> &middot; Nature Communications, 2025</div>
+                    <div class="paper_links"><a href="https://www.nature.com/articles/s41467-025-67226-1">Paper</a><a href="https://github.com/microsoft/cleavenet">Code</a><a href="https://news.mit.edu/2026/ai-generated-sensors-open-new-paths-early-cancer-detection">Press</a></div>
+                </div>
             </li>
         </ul>
     </div>

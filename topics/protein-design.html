@@ -2,18 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Generative Models for Protein Design — Sarah Alamdari</title>
+    <title>Generative Protein Design — Sarah Alamdari</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../styles.css?v=2">
-</head>
+    <style>
+        :root { --blue: #b0613c; --blue-dark: #8a4326; }
+        .topic_title { color: #8a4326; }
+    </style></head>
 <body>
     <div class="container">
         <p class="back"><a href="../index.html">&larr; Sarah Alamdari</a></p>
 
-        <h1 class="topic_title">Generative Models for Protein Design</h1>
+        <h1 class="topic_title">Generative Protein Design</h1>
 
         <p class="topic_body">
             My research develops generative machine learning methods for protein
@@ -24,39 +27,48 @@
             real-world design tasks.
         </p>
 
-        <p class="papers_heading">Relevant papers</p>
-        <ul class="papers">
+        <p class="papers_heading">Publications</p>
+        <ul class="papers papers_thumbs">
             <li>
-                <div class="paper_title"><a href="https://www.biorxiv.org/content/10.1101/2023.09.11.556673">Protein generation with evolutionary diffusion: sequence is all you need</a></div>
-                <div class="paper_meta">S Alamdari, N Thakkar, R van den Berg, et al. &middot; bioRxiv, 2023</div>
+                <a class="paper_thumb" href="https://www.nature.com/articles/s41467-025-67226-1"><img src="../img/papers/protease.png" alt="Figure from Deep learning guided design of protease substrates"></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://www.nature.com/articles/s41467-025-67226-1">Deep learning guided design of protease substrates</a></div>
+                    <div class="paper_meta">C Martin-Alonso<sup>*</sup>, <b class="me_first">S Alamdari</b><sup>*</sup>, TS Samad, KK Yang, SN Bhatia<sup>&dagger;</sup>, AP Amini<sup>&dagger;</sup> &middot; Nature Communications, 2025</div>
+                    <div class="paper_links"><a href="https://www.nature.com/articles/s41467-025-67226-1">Paper</a><a href="https://github.com/microsoft/cleavenet">Code</a><a href="https://news.mit.edu/2026/ai-generated-sensors-open-new-paths-early-cancer-detection">Press</a></div>
+                </div>
             </li>
             <li>
-                <div class="paper_title"><a href="https://www.biorxiv.org/content/10.1101/2025.07.21.665991">The Dayhoff Atlas: scaling sequence diversity for improved protein generation</a></div>
-                <div class="paper_meta">KK Yang, S Alamdari, AJ Lee, et al. &middot; bioRxiv, 2025</div>
+                <a class="paper_thumb" href="https://www.biorxiv.org/content/10.1101/2025.07.21.665991"><img src="../img/papers/dayhoff.jpg" alt="Figure from The Dayhoff Atlas"></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://www.biorxiv.org/content/10.1101/2025.07.21.665991">The Dayhoff Atlas: scaling sequence diversity for improved protein generation</a></div>
+                    <div class="paper_meta">KK Yang<sup>*</sup>, <b class="me_first">S Alamdari</b><sup>*</sup>, AJ Lee<sup>*</sup>, K Kaymak-Loveless, S Char, G Brixi, C Domingo-Enrich, C Wang, S Lyu, N Fusi, N Tenenholtz<sup>&dagger;</sup>, AP Amini<sup>&dagger;</sup> &middot; bioRxiv, 2025</div>
+                    <div class="paper_links"><a href="https://www.biorxiv.org/content/10.1101/2025.07.21.665991">Paper</a><a href="https://github.com/microsoft/dayhoff">Code</a><a href="https://www.microsoft.com/en-us/research/articles/the-dayhoff-atlas/">Website</a></div>
+                </div>
             </li>
             <li>
-                <div class="paper_title"><a href="https://www.nature.com/articles/s41467-024-45051-2">Protein structure generation via folding diffusion</a></div>
-                <div class="paper_meta">KE Wu, KK Yang, R van den Berg, S Alamdari, et al. &middot; Nature Communications, 2024</div>
+                <a class="paper_thumb paper_thumb_fallback" href="https://doi.org/10.1016/j.sbi.2025.103018"><img src="../img/area-protein-design.svg" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1016/j.sbi.2025.103018">Toward deep learning sequence&ndash;structure co-generation for protein design</a></div>
+                    <div class="paper_meta">C Wang, <b>S Alamdari</b>, C Domingo-Enrich, AP Amini, KK Yang &middot; Current Opinion in Structural Biology, 2025</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1016/j.sbi.2025.103018">Paper</a></div>
+                </div>
             </li>
             <li>
-                <div class="paper_title"><a href="https://www.nature.com/articles/s41467-025-55972-1">Deep learning guided design of protease substrates</a></div>
-                <div class="paper_meta">C Martin-Alonso, S Alamdari, TS Samad, et al. &middot; Nature Communications, 2026</div>
+                <a class="paper_thumb" href="https://www.nature.com/articles/s41467-024-45051-2"><img src="../img/papers/foldingdiff.png" alt="Figure from Protein structure generation via folding diffusion"></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://www.nature.com/articles/s41467-024-45051-2">Protein structure generation via folding diffusion</a></div>
+                    <div class="paper_meta">KE Wu, KK Yang, R van den Berg, <b>S Alamdari</b>, JY Zou, AX Lu, AP Amini &middot; Nature Communications, 2024</div>
+                    <div class="paper_links"><a href="https://www.nature.com/articles/s41467-024-45051-2">Paper</a><a href="https://github.com/microsoft/foldingdiff">Code</a></div>
+                </div>
             </li>
             <li>
-                <div class="paper_title"><a href="https://www.biorxiv.org/content/10.1101/2026.02.23.707496">FLIP2: Expanding protein fitness landscape benchmarks for real-world machine learning applications</a></div>
-                <div class="paper_meta">K Didi, S Alamdari, AX Lu, et al. &middot; bioRxiv, 2026</div>
-            </li>
-            <li>
-                <div class="paper_title"><a href="https://doi.org/10.1016/j.sbi.2025.103018">Toward deep learning sequence&ndash;structure co-generation for protein design</a></div>
-                <div class="paper_meta">C Wang, S Alamdari, C Domingo-Enrich, AP Amini, KK Yang &middot; Current Opinion in Structural Biology, 2025</div>
-            </li>
-            <li>
-                <div class="paper_title"><a href="https://doi.org/10.1093/bioinformatics/btaf170">ProtNote: a multimodal method for protein&ndash;function annotation</a></div>
-                <div class="paper_meta">S Char, N Corley, S Alamdari, KK Yang, AP Amini &middot; Bioinformatics, 2025</div>
-            </li>
-            <li>
-                <div class="paper_title"><a href="https://doi.org/10.1016/j.sbi.2026.103272">Closing the loop: Experimentally validated methods in artificial intelligence&ndash;driven protein design</a></div>
-                <div class="paper_meta">CW Kosonocky, S Alamdari, KK Yang, AP Amini &middot; Current Opinion in Structural Biology, 2026</div>
+                <a class="paper_thumb" href="https://www.biorxiv.org/content/10.1101/2023.09.11.556673v2"><img src="../img/papers/evodiff.jpg" alt="Figure from EvoDiff"></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://www.biorxiv.org/content/10.1101/2023.09.11.556673v2">Protein generation with evolutionary diffusion: sequence is all you need</a></div>
+                    <div class="paper_meta"><b class="me_first">S Alamdari</b>, N Thakkar, R van den Berg, N Tenenholtz, R Strome, AM Moses, AX Lu, N Fusi, AP Amini, KK Yang &middot; bioRxiv, 2023</div>
+                    <div class="paper_note">Updated with experimental validation of generated proteins.</div>
+                    <div class="paper_links"><a href="https://www.biorxiv.org/content/10.1101/2023.09.11.556673v2">Paper</a><a href="https://github.com/microsoft/evodiff">Code</a><a href="https://techcrunch.com/2023/09/14/microsoft-open-sources-evodiff-a-novel-protein-generating-ai/">Press</a></div>
+                </div>
             </li>
         </ul>
     </div>
