@@ -13,7 +13,7 @@ body {
     margin-bottom: 100px;
     color: var(--ink);
     background-color: var(--bg);
-    font-family: "Inter", -apple-system, sans-serif;
+    font-family: "Iowan Old Style BT", Georgia, serif;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -40,7 +40,7 @@ a:hover {
 
 .links {
     margin-top: 14px;
-    font-family: "Inter", sans-serif;
+    font-family: "Iowan Old Style BT", Georgia, serif;
 }
 
 .links a {
@@ -51,7 +51,7 @@ a:hover {
 }
 
 .home_title {
-    font-family: "Inter", -apple-system, sans-serif;
+    font-family: "Iowan Old Style BT", Georgia, serif;
     text-align: left;
     font-size: 40px;
     font-weight: 600;
@@ -61,7 +61,7 @@ a:hover {
 }
 
 .tagline {
-    font-family: "Inter", sans-serif;
+    font-family: "Iowan Old Style BT", Georgia, serif;
     font-size: 20px;
     font-weight: 400;
     color: var(--muted);
@@ -70,7 +70,7 @@ a:hover {
 }
 
 .about {
-    font-family: "Inter", -apple-system, sans-serif;
+    font-family: "Iowan Old Style BT", Georgia, serif;
 }
 
 .home_body {
@@ -87,7 +87,7 @@ a:hover {
 }
 
 .areas_heading {
-    font-family: "Inter", sans-serif;
+    font-family: "Iowan Old Style BT", Georgia, serif;
     font-size: 15px;
     font-weight: 600;
     letter-spacing: 0.06em;
@@ -129,7 +129,7 @@ a:hover {
 
 .area_card_title {
     display: block;
-    font-family: "Inter", sans-serif;
+    font-family: "Iowan Old Style BT", Georgia, serif;
     font-size: 17px;
     font-weight: 600;
     line-height: 145%;
@@ -151,7 +151,7 @@ a:hover {
 }
 
 .section_heading {
-    font-family: "Inter", sans-serif;
+    font-family: "Iowan Old Style BT", Georgia, serif;
     font-size: 13px;
     font-weight: 600;
     text-transform: uppercase;
@@ -171,7 +171,7 @@ a:hover {
 }
 
 .area_title {
-    font-family: "Inter", sans-serif;
+    font-family: "Iowan Old Style BT", Georgia, serif;
     font-size: 19px;
     font-weight: 600;
     margin: 0 0 5px 0;
@@ -188,7 +188,7 @@ a:hover {
 }
 
 .area_body {
-    font-family: "Inter", sans-serif;
+    font-family: "Iowan Old Style BT", Georgia, serif;
     font-size: 17px;
     line-height: 158%;
     font-weight: 300;
@@ -202,14 +202,14 @@ a:hover {
 }
 
 .see_all {
-    font-family: "Inter", sans-serif;
+    font-family: "Iowan Old Style BT", Georgia, serif;
     font-size: 15px;
     margin: 22px 0 0 0;
 }
 
 /* ---- News ---- */
 .news {
-    font-family: "Inter", sans-serif;
+    font-family: "Iowan Old Style BT", Georgia, serif;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -239,7 +239,7 @@ a:hover {
 /* ---- Contact footer ---- */
 .contact {
     margin: 56px 0 40px 0;
-    font-family: "Inter", sans-serif;
+    font-family: "Iowan Old Style BT", Georgia, serif;
     font-size: 16px;
     display: flex;
     flex-wrap: wrap;
@@ -261,13 +261,13 @@ a:hover {
 
 /* ---- Topic pages ---- */
 .back {
-    font-family: "Inter", sans-serif;
+    font-family: "Iowan Old Style BT", Georgia, serif;
     font-size: 15px;
     margin: 40px 0 30px 0;
 }
 
 .topic_title {
-    font-family: "Inter", -apple-system, sans-serif;
+    font-family: "Iowan Old Style BT", Georgia, serif;
     font-size: 34px;
     font-weight: 600;
     letter-spacing: -0.02em;
@@ -276,7 +276,7 @@ a:hover {
 }
 
 .topic_body {
-    font-family: "Inter", -apple-system, sans-serif;
+    font-family: "Iowan Old Style BT", Georgia, serif;
     font-size: 19px;
     line-height: 168%;
     font-weight: 300;
@@ -285,7 +285,7 @@ a:hover {
 }
 
 .papers_heading {
-    font-family: "Inter", sans-serif;
+    font-family: "Iowan Old Style BT", Georgia, serif;
     font-size: 15px;
     font-weight: 600;
     text-transform: uppercase;
@@ -295,7 +295,7 @@ a:hover {
 }
 
 .papers {
-    font-family: "Inter", sans-serif;
+    font-family: "Iowan Old Style BT", Georgia, serif;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -341,7 +341,7 @@ a:hover {
 }
 
 .pub_legend {
-    font-family: "Inter", sans-serif;
+    font-family: "Iowan Old Style BT", Georgia, serif;
     font-size: 14px;
     font-weight: 300;
     color: var(--muted);
@@ -349,7 +349,7 @@ a:hover {
 }
 
 .paper_links a {
-    font-family: "Inter", sans-serif;
+    font-family: "Iowan Old Style BT", Georgia, serif;
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.02em;
