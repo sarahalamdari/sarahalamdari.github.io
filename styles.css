@@ -319,6 +319,11 @@ a:hover {
     margin-top: 3px;
 }
 
+.paper_meta b {
+    font-weight: 700;
+    color: var(--ink);
+}
+
 .paper_links {
     margin-top: 8px;
     display: flex;
