@@ -3,7 +3,7 @@
     --blue-dark: #17457c;
     --ink: #22303c;
     --muted: #5f6b73;
-    --bg: #fcfbf9;
+    --bg: #ffffff;
     --serif: "Iowan Old Style BT", Georgia, serif;
 }
 
@@ -395,6 +395,14 @@ a:hover {
 }
 
 .paper_thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.paper_thumb video {
     width: 100%;
     height: 100%;
     object-fit: cover;
