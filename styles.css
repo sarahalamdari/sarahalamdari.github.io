@@ -389,15 +389,14 @@ a:hover {
     height: 96px;
     border-radius: 8px;
     overflow: hidden;
-    border: 1px solid #e0dccf;
-    background: #fbfaf6;
+    background: transparent;
     display: block;
 }
 
 .paper_thumb img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
     display: block;
 }
@@ -405,7 +404,7 @@ a:hover {
 .paper_thumb video {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
     display: block;
 }
