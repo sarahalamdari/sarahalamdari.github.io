@@ -379,22 +379,23 @@ a:hover {
 }
 
 .paper_links a {
-    font-family: var(--serif);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    color: var(--blue);
+    font-family: "Inter", -apple-system, sans-serif;
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--blue-dark);
     text-decoration: none;
     padding: 3px 10px;
-    border: 1px solid #d9d9d9;
+    border: 1px solid color-mix(in srgb, var(--blue) 32%, #ffffff);
     border-radius: 20px;
-    background: #ffffff;
+    background: color-mix(in srgb, var(--blue) 14%, #ffffff);
     transition: border-color 0.15s ease, background 0.15s ease;
 }
 
 .paper_links a:hover {
     border-color: var(--blue);
-    background: #f4f7fb;
+    background: color-mix(in srgb, var(--blue) 24%, #ffffff);
 }
 
 /* ---- Publications with thumbnails ---- */
