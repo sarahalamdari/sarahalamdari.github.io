@@ -1,4 +1,5 @@
 :root {
+    color-scheme: light only;
     --blue: #205ba0;
     --blue-dark: #17457c;
     --ink: #22303c;
@@ -41,6 +42,27 @@ a:hover {
     margin: 80px 0 34px 0;
 }
 
+.home_head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.home_head_text {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.home_photo {
+    flex: 0 0 auto;
+    width: 132px;
+    height: 132px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
 .links {
     margin-top: 14px;
     font-family: "Inter", -apple-system, sans-serif;
@@ -49,14 +71,14 @@ a:hover {
 .links a {
     display: inline-block;
     margin-right: 18px;
-    font-size: 16px;
+    font-size: 14.5px;
     font-weight: 500;
 }
 
 .home_title {
     font-family: var(--serif);
     text-align: left;
-    font-size: 40px;
+    font-size: 32px;
     font-weight: 600;
     margin: 0;
     letter-spacing: -0.02em;
@@ -64,12 +86,11 @@ a:hover {
 }
 
 .tagline {
-    font-family: var(--serif);
-    font-size: 20px;
-    font-weight: 400;
+    font-family: "Inter", -apple-system, sans-serif;
+    font-size: 14.5px;
+    font-weight: 500;
     color: var(--muted);
     margin: 10px 0 0 0;
-    letter-spacing: -0.01em;
 }
 
 .about {
@@ -77,7 +98,7 @@ a:hover {
 }
 
 .home_body {
-    font-size: 19px;
+    font-size: 17.5px;
     margin: 0 0 26px 0;
     line-height: 168%;
     font-weight: 300;
@@ -91,7 +112,7 @@ a:hover {
 
 .areas_heading {
     font-family: "Inter", -apple-system, sans-serif;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -133,7 +154,7 @@ a:hover {
 .area_card_title {
     display: block;
     font-family: var(--serif);
-    font-size: 17px;
+    font-size: 15.5px;
     font-weight: 600;
     line-height: 145%;
     color: var(--ink);
@@ -155,7 +176,7 @@ a:hover {
 
 .section_heading {
     font-family: var(--serif);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -175,7 +196,7 @@ a:hover {
 
 .area_title {
     font-family: var(--serif);
-    font-size: 19px;
+    font-size: 17.5px;
     font-weight: 600;
     margin: 0 0 5px 0;
     letter-spacing: -0.01em;
@@ -192,7 +213,7 @@ a:hover {
 
 .area_body {
     font-family: var(--serif);
-    font-size: 17px;
+    font-size: 15.5px;
     line-height: 158%;
     font-weight: 300;
     color: #333;
@@ -206,7 +227,7 @@ a:hover {
 
 .see_all {
     font-family: var(--serif);
-    font-size: 15px;
+    font-size: 14px;
     margin: 22px 0 0 0;
 }
 
@@ -222,7 +243,7 @@ a:hover {
     display: flex;
     gap: 16px;
     margin: 0 0 14px 0;
-    font-size: 16px;
+    font-size: 14.5px;
     line-height: 150%;
 }
 
@@ -243,7 +264,7 @@ a:hover {
 .contact {
     margin: 56px 0 40px 0;
     font-family: "Inter", -apple-system, sans-serif;
-    font-size: 16px;
+    font-size: 14.5px;
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
@@ -251,6 +272,7 @@ a:hover {
 }
 
 .contact_label {
+    font-family: "Inter", -apple-system, sans-serif;
     font-size: 13px;
     font-weight: 600;
     text-transform: uppercase;
@@ -265,13 +287,13 @@ a:hover {
 /* ---- Topic pages ---- */
 .back {
     font-family: var(--serif);
-    font-size: 15px;
+    font-size: 14px;
     margin: 40px 0 30px 0;
 }
 
 .topic_title {
     font-family: var(--serif);
-    font-size: 34px;
+    font-size: 31.5px;
     font-weight: 600;
     letter-spacing: -0.02em;
     margin: 0 0 20px 0;
@@ -280,7 +302,7 @@ a:hover {
 
 .topic_body {
     font-family: var(--serif);
-    font-size: 19px;
+    font-size: 17.5px;
     line-height: 168%;
     font-weight: 300;
     color: #222;
@@ -288,8 +310,8 @@ a:hover {
 }
 
 .papers_heading {
-    font-family: var(--serif);
-    font-size: 15px;
+    font-family: "Inter", -apple-system, sans-serif;
+    font-size: 13px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.06em;
@@ -310,13 +332,13 @@ a:hover {
 }
 
 .paper_title {
-    font-size: 18px;
+    font-size: 16.5px;
     font-weight: 500;
     color: var(--ink);
 }
 
 .paper_meta {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 300;
     color: var(--muted);
     margin-top: 3px;
@@ -335,7 +357,7 @@ a:hover {
 }
 
 .paper_note {
-    font-size: 13.5px;
+    font-size: 12.5px;
     font-weight: 400;
     font-style: italic;
     color: var(--blue);
@@ -350,7 +372,7 @@ a:hover {
 
 .pub_legend {
     font-family: var(--serif);
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 300;
     color: var(--muted);
     margin: -8px 0 30px 0;
@@ -358,21 +380,21 @@ a:hover {
 
 .paper_links a {
     font-family: var(--serif);
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 500;
     letter-spacing: 0.02em;
     color: var(--blue);
     text-decoration: none;
     padding: 3px 10px;
-    border: 1px solid #e0dccf;
+    border: 1px solid #d9d9d9;
     border-radius: 20px;
-    background: #fbfaf6;
+    background: #ffffff;
     transition: border-color 0.15s ease, background 0.15s ease;
 }
 
 .paper_links a:hover {
     border-color: var(--blue);
-    background: #edf1f6;
+    background: #f4f7fb;
 }
 
 /* ---- Publications with thumbnails ---- */
@@ -435,16 +457,25 @@ a:hover {
     .home_menu {
         margin-top: 48px;
     }
+    .home_head {
+        flex-direction: row-reverse;
+        align-items: center;
+        gap: 18px;
+    }
+    .home_photo {
+        width: 92px;
+        height: 92px;
+    }
     .home_title {
-        font-size: 36px;
+        font-size: 29px;
     }
     .home_body {
-        font-size: 18px;
+        font-size: 16.5px;
     }
     .topic_title {
-        font-size: 30px;
+        font-size: 27.5px;
     }
     .topic_body {
-        font-size: 18px;
+        font-size: 16.5px;
     }
 }
