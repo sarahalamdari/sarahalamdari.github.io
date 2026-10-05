@@ -1,7 +1,7 @@
 :root {
     color-scheme: light only;
-    --blue: #205ba0;
-    --blue-dark: #17457c;
+    --blue: #1a66c9;
+    --blue-dark: #124d99;
     --ink: #22303c;
     --muted: #5f6b73;
     --bg: #ffffff;
@@ -98,7 +98,7 @@ a:hover {
 }
 
 .home_body {
-    font-size: 17.5px;
+    font-size: 16px;
     margin: 0 0 26px 0;
     line-height: 168%;
     font-weight: 300;
@@ -302,7 +302,7 @@ a:hover {
 
 .topic_body {
     font-family: var(--serif);
-    font-size: 17.5px;
+    font-size: 16px;
     line-height: 168%;
     font-weight: 300;
     color: #222;
@@ -471,12 +471,12 @@ a:hover {
         font-size: 29px;
     }
     .home_body {
-        font-size: 16.5px;
+        font-size: 15px;
     }
     .topic_title {
         font-size: 27.5px;
     }
     .topic_body {
-        font-size: 16.5px;
+        font-size: 15px;
     }
 }

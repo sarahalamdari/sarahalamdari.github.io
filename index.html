@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Sarah Alamdari — Generative AI for Protein Design</title>
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
     <meta name="description" content="Sarah Alamdari is a Senior Applied Scientist at Microsoft Research building generative machine learning models for protein design, including EvoDiff and the Dayhoff Atlas.">
     <meta name="keywords" content="Sarah Alamdari, protein design, generative AI, machine learning, EvoDiff, Dayhoff, protein language models, computational biology, Microsoft Research">
     <meta name="author" content="Sarah Alamdari">
@@ -15,12 +18,144 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css?v=2">
+
+    <style>
+        body { margin-bottom: 0; }
+        .container { display: flex; flex-direction: column; min-height: 100vh; }
+        [data-panel] { flex: 1 0 auto; }
+        /* news */
+        .news_year {
+            font: 600 13px Inter, sans-serif; letter-spacing: 0.06em; color: var(--muted);
+            margin: 0 0 6px 0; padding-top: 4px;
+        }
+        .news_group + .news_group { margin-top: 30px; }
+        .news:not(.expanded) .news_more { display: none; }
+        .news_toggle {
+            margin: 16px 0 8px 0; padding: 0;
+            font: 500 14.5px Inter, sans-serif;
+            color: var(--blue); background: none; border: 0; cursor: pointer;
+        }
+        .news_toggle:hover { color: var(--blue-dark); }
+        .news_list { list-style: none; padding: 0; margin: 0; }
+        .news_list li {
+            display: grid; grid-template-columns: 84px 1fr; gap: 14px; align-items: baseline;
+            margin: 0; padding: 9px 0; border-top: 1px solid #f1f1f1;
+            font-family: var(--serif); font-size: 15.5px; line-height: 1.5; color: var(--ink);
+        }
+        .news_list li:first-child { border-top: 0; }
+        .news_tag {
+            justify-self: start;
+            font: 600 9.5px Inter, sans-serif; letter-spacing: 0.06em; text-transform: uppercase;
+            padding: 3px 7px; border-radius: 4px; position: relative; top: -1px;
+        }
+        .news_paper { background: #e6eefa; color: #124d99; }
+        .news_talk { background: #f1ece4; color: #7a5a2e; }
+        .news_workshop { background: #e7f1ec; color: #2f6b4f; }
+
+        .container > .contact {
+            position: sticky; bottom: 0; z-index: 30;
+            background: #ffffff;
+            margin: 0;
+            padding: 14px 0 18px 0;
+            border-top: 1px solid #ececec;
+        }
+
+        .sticky_head {
+            position: sticky;
+            top: 0;
+            z-index: 30;
+            background: #ffffff;
+            padding-top: 48px;
+            border-bottom: 1px solid #ececec;
+        }
+        .sticky_head .home_menu { margin-top: 0; margin-bottom: 0; }
+
+        .head_grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-template-areas: "photo text" "toggle toggle";
+            column-gap: 30px;
+            row-gap: 6px;
+            align-items: center;
+        }
+        .head_grid .home_photo { grid-area: photo; }
+        .head_grid .head_text { grid-area: text; min-width: 0; }
+        .head_grid .links { margin-top: 12px; }
+        .head_grid .view_toggle { grid-area: toggle; }
+
+        .view_toggle {
+            display: flex; gap: 24px;
+            justify-content: flex-end;
+            margin: 0;
+            padding: 0;
+            align-self: end;
+            margin-bottom: -1px;
+        }
+        .view_toggle button {
+            background: none; border: 0; padding: 0 0 11px 0; margin: 0;
+            font-family: var(--serif); font-size: 20px; font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #b3b8bc; cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: color .2s ease, border-color .2s ease;
+        }
+        .view_toggle button:hover { color: var(--muted); }
+        .view_toggle button[aria-pressed="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+
+        [data-panel][hidden] { display: none; }
+        [data-panel] { padding-top: 30px; }
+
+        .area_chips {
+            position: sticky; top: var(--head-h, 0px); z-index: 10;
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+            padding: 12px 0; margin-bottom: 6px;
+            background: rgba(255,255,255,0.94);
+            backdrop-filter: blur(6px);
+        }
+        .area_chip {
+            display: flex; align-items: center; justify-content: center; text-align: center;
+            min-height: 44px; padding: 8px 10px; border-radius: 10px;
+            font-family: var(--serif); font-size: 14px; font-weight: 600; line-height: 1.25;
+            color: #9aa1a6; background: #f4f4f4;
+            text-decoration: none;
+            transition: background .35s ease, color .35s ease;
+        }
+        .area_chip:hover { text-decoration: none; color: var(--blue-dark); }
+        .area_chip.active { background: var(--tint); color: var(--blue-dark); }
+
+        .area_sec {
+            padding: 30px 0 34px 0;
+            scroll-margin-top: calc(var(--head-h, 0px) + 70px);
+            opacity: 0.32;
+            filter: saturate(0.15);
+            transition: opacity .55s ease, filter .55s ease;
+        }
+        .area_sec.active { opacity: 1; filter: none; }
+        .area_sec + .area_sec { border-top: 1px solid #f0f0f0; }
+        .area_sec .topic_title { color: var(--blue-dark); font-size: 21px; margin-bottom: 12px; }
+        .area_sec .papers_heading { margin-top: 30px; }
+
+        @media (max-width: 768px) {
+            .sticky_head { position: static; padding-top: 48px; }
+            .area_chips { top: 0; }
+            .area_sec { scroll-margin-top: 70px; }
+        }
+        @media (max-width: 768px) {
+            .head_grid { column-gap: 18px; row-gap: 14px; }
+            .head_grid .view_toggle { justify-content: flex-start; }
+            .view_toggle button { font-size: 18px; }
+            .area_chip { font-size: 12.5px; min-height: 40px; padding: 6px; }
+            .area_sec .topic_title { font-size: 19px; }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
+        <div class="sticky_head">
         <div class="home_menu">
-            <div class="home_head">
-                <div class="home_head_text">
+            <div class="head_grid">
+                <img class="home_photo" src="img/profile.jpg" alt="Sarah Alamdari">
+                <div class="head_text">
                     <p class="home_title">Sarah Alamdari</p>
                     <p class="tagline">Senior Applied Scientist, Microsoft Research</p>
                     <nav class="links">
@@ -29,42 +164,263 @@
                         <a href="https://github.com/sarahalamdari">GitHub</a>
                     </nav>
                 </div>
-                <img class="home_photo" src="img/profile.jpg" alt="Sarah Alamdari">
+                <div class="view_toggle" role="tablist">
+                        <button type="button" data-view="about" aria-pressed="true">About</button>
+                        <button type="button" data-view="research" aria-pressed="false">Research</button>
+                        <button type="button" data-view="news" aria-pressed="false">News</button>
+                    </div>
             </div>
         </div>
+        </div>
 
+        <div data-panel="about">
         <div class="about">
             <p class="home_body">
-                I am a Senior Applied Scientist at <a href="https://www.microsoft.com/en-us/research/">Microsoft Research</a> on the <a href="https://www.microsoft.com/en-us/research/theme/biomedical-ml/">BioML team</a>, where I build <a href="topics/protein-design.html">generative AI models that design new, functional proteins</a>; including <a href="https://elifesciences.org/reviewed-preprints/112029">EvoDiff</a>, one of the first models to bring discrete diffusion to <a href="https://techcrunch.com/2023/09/14/microsoft-open-sources-evodiff-a-novel-protein-generating-ai/">protein sequence design</a>, followed by <a href="https://www.biorxiv.org/content/10.1101/2025.07.21.665991">the Dayhoff Atlas</a>, which scaled sequence diversity to improve protein generation, and <a href="https://www.nature.com/articles/s41467-025-67226-1">CleaveNet</a>, which applied deep learning to design protease substrates for <a href="https://news.mit.edu/2026/ai-generated-sensors-open-new-paths-early-cancer-detection">early cancer detection</a>.
+                I am a Senior Applied Scientist at <a href="https://www.microsoft.com/en-us/research/">Microsoft Research</a> on the <a href="https://www.microsoft.com/en-us/research/theme/biomedical-ml/">BioML team</a>, where I build <a href="#protein-design">generative AI models that design new, functional proteins</a>; including <a href="https://elifesciences.org/reviewed-preprints/112029">EvoDiff</a>, one of the first models to bring discrete diffusion to <a href="https://techcrunch.com/2023/09/14/microsoft-open-sources-evodiff-a-novel-protein-generating-ai/">protein sequence design</a>, followed by <a href="https://www.biorxiv.org/content/10.1101/2025.07.21.665991">the Dayhoff Atlas</a>, which scaled sequence diversity to improve protein generation, and <a href="https://www.nature.com/articles/s41467-025-67226-1">CleaveNet</a>, which applied deep learning to design protease substrates for <a href="https://news.mit.edu/2026/ai-generated-sensors-open-new-paths-early-cancer-detection">early cancer detection</a>.
             </p>
             <p class="home_body">
                 I care about understanding the fundamental forces that drive biological systems, and using that understanding to rationally design efficient, bioinspired technologies faster than we ever could before.
             </p>
             <p class="home_body">
-                Before Microsoft, I completed my Ph.D. in Chemical Engineering at the <a href="https://uwprg.github.io/">University of Washington</a> as an <a href="https://www.nsfgrfp.org/">NSF GRFP Fellow</a>, where I developed <a href="topics/enhanced-sampling.html">enhanced sampling methods</a> for molecular dynamics simulations to probe the <a href="https://doi.org/10.1021/acs.langmuir.0c01881">interfacial phenomena</a> that govern biology at the microscale; from <a href="https://doi.org/10.1021/acs.biomac.1c01385">biomolecular self-assembly</a> and <a href="https://doi.org/10.1021/jacs.9b11617">protein&ndash;surface interactions</a> to <a href="https://doi.org/10.1039/c9me00158a">biomineralization</a> and <a href="https://doi.org/10.1093/protein/gzab031">enzyme engineering</a>.
+                Before Microsoft, I completed my Ph.D. in Chemical Engineering at the <a href="https://uwprg.github.io/">University of Washington</a> as an <a href="https://www.nsfgrfp.org/">NSF GRFP Fellow</a>, where I developed <a href="#simulation">enhanced sampling methods</a> for molecular dynamics simulations to probe the <a href="https://doi.org/10.1021/acs.langmuir.0c01881">interfacial phenomena</a> that govern biology at the microscale; from <a href="https://doi.org/10.1021/acs.biomac.1c01385">biomolecular self-assembly</a> and <a href="https://doi.org/10.1021/jacs.9b11617">protein&ndash;surface interactions</a> to <a href="https://doi.org/10.1039/c9me00158a">biomineralization</a> and <a href="https://doi.org/10.1093/protein/gzab031">enzyme engineering</a>.
             </p>
         </div>
-
-        <section class="areas_section">
-        <h2 class="areas_heading">Research areas</h2>
-        <div class="areas">
-            <a class="area_card" href="topics/protein-design.html" style="background-color:rgba(208,86,66,0.48)">
-                <span class="area_card_inner">
-                    <span class="area_card_title" style="color:#b23a25">Generative protein design</span>
-                </span>
-            </a>
-            <a class="area_card" href="topics/benchmarks.html" style="background-color:rgba(240,192,82,0.5)">
-                <span class="area_card_inner">
-                    <span class="area_card_title" style="color:#a5760e">Learning protein function</span>
-                </span>
-            </a>
-            <a class="area_card" href="topics/enhanced-sampling.html" style="background-color:rgba(108,178,206,0.48)">
-                <span class="area_card_inner">
-                    <span class="area_card_title" style="color:#256883">Molecular simulation</span>
-                </span>
-            </a>
         </div>
-        </section>
+
+        <div data-panel="news" hidden>
+        <section class="news"><div class="news_group"><h2 class="news_year">2026</h2><ul class="news_list"><li><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://doi.org/10.64898/2026.02.23.707496">FLIP2</a>, a benchmark of protein fitness prediction under realistic distribution shifts, accepted to <i>ICML 2026</i> as an oral presentation (top ~3% of submissions).</span></li><li><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://www.nature.com/articles/s41467-025-67226-1">CleaveNet</a>, AI-designed protease substrates for cancer-detecting sensors, published in <i>Nature Communications</i>; featured in <a href="https://news.mit.edu/2026/ai-generated-sensors-open-new-paths-early-cancer-detection">MIT News</a>.</span></li><li><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://elifesciences.org/reviewed-preprints/112029">EvoDiff</a>, diffusion over evolutionary-scale sequence data for protein design, published in <i>eLife</i> after a 3-year review process.</span></li><li><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://doi.org/10.1016/j.sbi.2026.103272">Closing the loop</a>, a review of experimentally validated AI protein design, in <i>Curr. Opin. Struct. Biol.</i></span></li><li><span class="news_tag news_talk">Talk</span><span class="news_text">Sequence-based approaches to protein design &middot; Protein Evolution, Design and Informatics, Biochemical Society (Edinburgh, UK)</span></li></ul></div><div class="news_group"><h2 class="news_year">2025</h2><ul class="news_list"><li><span class="news_tag news_workshop">Workshop</span><span class="news_text">The Dayhoff Atlas selected as a Top 4 paper spotlight talk &middot; Molecular ML Conference (MoML) @ MIT</span></li><li><span class="news_tag news_workshop">Workshop</span><span class="news_text">The Dayhoff Atlas &middot; Machine Learning in Structural Biology (MLSB) Workshop (San Diego, CA)</span></li><li><span class="news_tag news_workshop">Workshop</span><span class="news_text">Augmenting protein language models with synthetic structures &middot; ICLR GEM Workshop (Singapore)</span></li><li><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://www.biorxiv.org/content/10.1101/2025.07.21.665991">The Dayhoff Atlas</a>, a 3.3B-sequence protein atlas and family of protein language models: preprint, datasets and open models released.</span></li><li><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://doi.org/10.1016/j.sbi.2025.103018">Toward deep learning sequence&ndash;structure co-generation</a>, a review of joint sequence&ndash;structure generative models, published in <i>Curr. Opin. Struct. Biol.</i></span></li><li class="news_more"><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://doi.org/10.1093/bioinformatics/btaf170">ProtNote</a>, zero-shot protein function annotation from text descriptions, published in <i>Bioinformatics</i>.</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">Sequence-based approaches to protein design &middot; AI4Science Seminar, Chalmers University (Gothenburg, Sweden)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">Protein design in sequence space &middot; 39th Annual Symposium of The Protein Society (San Francisco, CA)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">Generative sequence-based approaches to protein design &middot; Schr&ouml;dinger Biologics Symposium (Cambridge, MA)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">EvoDiff: a general-purpose diffusion framework for sequence-first protein design &middot; Applied ML Days, EPFL (Lausanne, Switzerland)</span></li></ul></div><div class="news_group news_more"><h2 class="news_year">2024</h2><ul class="news_list"><li class="news_more"><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://www.nature.com/articles/s41467-024-45051-2">FoldingDiff</a>, protein backbone generation by diffusing over internal angles, published in <i>Nature Communications</i>.</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">Discrete diffusion models for generative protein design &middot; Boston Protein Design and Modeling Club (Cambridge, MA)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">In-silico design of protease-cleavable peptide substrates &middot; Gordon Research Conference on Proteolytic Enzymes (Lucca, Italy)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">AI-driven revolutions in protein engineering &middot; SynBioBeta (San Jose, CA)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">Discrete diffusion models for controllable protein generation &middot; Molecular ML Reading Group, Rosetta Commons</span></li></ul></div><div class="news_group news_more"><h2 class="news_year">2023</h2><ul class="news_list"><li class="news_more"><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://www.biorxiv.org/content/10.1101/2023.09.11.556673">EvoDiff</a>, generative protein design in sequence space with discrete diffusion: preprint and open-source release; featured in <a href="https://techcrunch.com/2023/09/14/microsoft-open-sources-evodiff-a-novel-protein-generating-ai/">TechCrunch</a>.</span></li><li class="news_more"><span class="news_tag news_workshop">Workshop</span><span class="news_text">EvoDiff selected as a spotlight talk &middot; NeurIPS Machine Learning in Structural Biology (MLSB) Workshop (New Orleans, LA)</span></li><li class="news_more"><span class="news_tag news_workshop">Workshop</span><span class="news_text">EvoDiff &middot; NeurIPS Generative AI and Biology (GenBio) Workshop (New Orleans, LA)</span></li><li class="news_more"><span class="news_tag news_workshop">Workshop</span><span class="news_text">EvoDiff &middot; Molecular ML Conference (MoML) @ MIT (Cambridge, MA)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">An introduction to diffusion models &middot; Models, Inference &amp; Algorithms Seminar, Broad Institute (Cambridge, MA)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">Protein sequence generation with evolutionary diffusion &middot; Google Research (Cambridge, MA)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">Discrete diffusion models for controllable protein generation &middot; ML Ideas, Microsoft Research (Cambridge, MA)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">Sequence-first generative approaches for protein design &middot; AstraZeneca Journal Club</span></li></ul></div><button type="button" class="news_toggle" data-more="Show all news &darr;" data-less="Show less &uarr;">Show all news &darr;</button></section>
+        </div>
+
+        <div data-panel="research" hidden>
+            <nav class="area_chips"><a class="area_chip" href="#protein-design" data-target="protein-design" style="--blue:#c24d30;--blue-dark:#b23a25;--tint:rgba(208,86,66,0.48);">Generative Protein Design</a><a class="area_chip" href="#protein-function" data-target="protein-function" style="--blue:#b5850f;--blue-dark:#a5760e;--tint:rgba(240,192,82,0.5);">Learning Protein Function</a><a class="area_chip" href="#simulation" data-target="simulation" style="--blue:#2b7794;--blue-dark:#256883;--tint:rgba(108,178,206,0.48);">Molecular Simulation</a></nav>
+            
+            <section class="area_sec" id="protein-design" style="--blue:#c24d30;--blue-dark:#b23a25;--tint:rgba(208,86,66,0.48);">
+                <h2 class="topic_title">Generative Protein Design</h2>
+                <p class="topic_body">
+            My research develops generative machine learning methods for protein
+            design. Specifically, my focus is on models that learn from evolutionary sequence and structure
+            to generate new, functional proteins. This includes diffusion models over
+            protein sequence and structure, protein language models trained at scale,
+            and the benchmarks and annotation tools that connect these models to
+            real-world design tasks.
+        </p>
+                <p class="papers_heading">Selected publications</p>
+        <ul class="papers papers_thumbs">
+            <li>
+                <a class="paper_thumb" href="https://www.nature.com/articles/s41467-025-67226-1"><img src="img/papers/protease.png" alt="Figure from Deep learning guided design of protease substrates"></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://www.nature.com/articles/s41467-025-67226-1">Deep learning guided design of protease substrates</a></div>
+                    <div class="paper_meta">C Martin-Alonso<sup>*</sup>, <b class="me_first">S Alamdari</b><sup>*</sup>, TS Samad, KK Yang, SN Bhatia<sup>&dagger;</sup>, AP Amini<sup>&dagger;</sup> &middot; Nature Communications, 2026</div>
+                    <div class="paper_links"><a href="https://www.nature.com/articles/s41467-025-67226-1">Paper</a><a href="https://github.com/microsoft/cleavenet">Code</a><a href="https://news.mit.edu/2026/ai-generated-sensors-open-new-paths-early-cancer-detection">Press</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb" href="https://www.biorxiv.org/content/10.1101/2025.07.21.665991"><img src="img/papers/dayhoff.jpg" alt="Figure from The Dayhoff Atlas"></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://www.biorxiv.org/content/10.1101/2025.07.21.665991">The Dayhoff Atlas: scaling sequence diversity for improved protein generation</a></div>
+                    <div class="paper_meta">KK Yang<sup>*</sup>, <b class="me_first">S Alamdari</b><sup>*</sup>, AJ Lee<sup>*</sup>, K Kaymak-Loveless, S Char, G Brixi, C Domingo-Enrich, C Wang, S Lyu, N Fusi, N Tenenholtz<sup>&dagger;</sup>, AP Amini<sup>&dagger;</sup> &middot; bioRxiv, 2025</div>
+                    <div class="paper_links"><a href="https://www.biorxiv.org/content/10.1101/2025.07.21.665991">Paper</a><a href="https://github.com/microsoft/dayhoff">Code</a><a href="https://www.microsoft.com/en-us/research/articles/the-dayhoff-atlas/">Website</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb" href="https://doi.org/10.1016/j.sbi.2025.103018"><img src="img/papers/cogen.png" onerror="this.onerror=null;this.src='img/area-protein-design.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1016/j.sbi.2025.103018">Toward deep learning sequence&ndash;structure co-generation for protein design</a></div>
+                    <div class="paper_meta">C Wang, <b>S Alamdari</b>, C Domingo-Enrich, AP Amini, KK Yang &middot; Current Opinion in Structural Biology, 2025</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1016/j.sbi.2025.103018">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb" href="https://elifesciences.org/reviewed-preprints/112029"><img src="img/papers/evodiff.gif" alt="Figure from EvoDiff"></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://elifesciences.org/reviewed-preprints/112029">Protein generation with evolutionary diffusion: sequence is all you need</a></div>
+                    <div class="paper_meta"><b class="me_first">S Alamdari</b>, N Thakkar, R van den Berg, N Tenenholtz, R Strome, AM Moses, AX Lu, N Fusi, AP Amini, KK Yang &middot; eLife, 2026</div>
+                    <div class="paper_links"><a href="https://elifesciences.org/reviewed-preprints/112029">Paper</a><a href="https://github.com/microsoft/evodiff">Code</a><a href="https://techcrunch.com/2023/09/14/microsoft-open-sources-evodiff-a-novel-protein-generating-ai/">Press</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb" href="https://www.nature.com/articles/s41467-024-45051-2"><video src="img/papers/foldingdiff.mp4" autoplay muted loop playsinline aria-label="Animation from Protein structure generation via folding diffusion"></video></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://www.nature.com/articles/s41467-024-45051-2">Protein structure generation via folding diffusion</a></div>
+                    <div class="paper_meta">KE Wu, KK Yang, R van den Berg, <b>S Alamdari</b>, JY Zou, AX Lu, AP Amini &middot; Nature Communications, 2024</div>
+                    <div class="paper_links"><a href="https://www.nature.com/articles/s41467-024-45051-2">Paper</a><a href="https://github.com/microsoft/foldingdiff">Code</a></div>
+                </div>
+            </li>
+        </ul>
+            </section>
+            <section class="area_sec" id="protein-function" style="--blue:#b5850f;--blue-dark:#a5760e;--tint:rgba(240,192,82,0.5);">
+                <h2 class="topic_title">Learning Protein Function</h2>
+                <p class="topic_body">
+            Building better protein models only matters if we can connect them to
+            biological function. I develop methods to predict, annotate, and
+            benchmark protein function. This work ranges from fitness landscape prediction to
+            multimodal protein function annotation so that protein
+            models stay comparable, reproducible, and grounded in real-world tasks.
+        </p>
+                <p class="papers_heading">Selected publications</p>
+        <ul class="papers papers_thumbs">
+            <li>
+                <a class="paper_thumb" href="https://doi.org/10.64898/2026.02.23.707496"><img src="img/papers/flip2.png" onerror="this.onerror=null;this.src='img/area-benchmarks.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.64898/2026.02.23.707496">FLIP2: Expanding protein fitness landscape benchmarks for real-world machine learning applications</a></div>
+                    <div class="paper_meta">K Didi, <b>S Alamdari</b>, AX Lu, B Wittmann, KE Johnston, AP Amini, A Madani, M Czeneszew, C Dallago, KK Yang &middot; bioRxiv, 2026</div>
+                    <div class="paper_note">Oral presentation at ICML 2026 (168 of 23,918 submissions, ~top 3%).</div>
+                    <div class="paper_links"><a href="https://doi.org/10.64898/2026.02.23.707496">Paper</a><a href="https://github.com/J-SNACKKB/FLIP">Code</a><a href="https://flip.protein.properties/">Website</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb" href="https://doi.org/10.1016/j.sbi.2026.103272"><img src="img/papers/closing-loop.jpg" onerror="this.onerror=null;this.src='img/area-benchmarks.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1016/j.sbi.2026.103272">Closing the loop: Experimentally validated methods in artificial intelligence&ndash;driven protein design</a></div>
+                    <div class="paper_meta">CW Kosonocky, <b>S Alamdari</b>, KK Yang, AP Amini &middot; Current Opinion in Structural Biology, 2026</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1016/j.sbi.2026.103272">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb" href="https://doi.org/10.1093/bioinformatics/btaf170"><img src="img/papers/protnote.jpeg" onerror="this.onerror=null;this.src='img/area-benchmarks.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1093/bioinformatics/btaf170">ProtNote: a multimodal method for protein&ndash;function annotation</a></div>
+                    <div class="paper_meta">S Char, N Corley, <b>S Alamdari</b>, KK Yang, AP Amini &middot; Bioinformatics, 2025</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1093/bioinformatics/btaf170">Paper</a><a href="https://github.com/microsoft/protnote">Code</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb" href="https://www.nature.com/articles/s41467-025-67226-1"><img src="img/papers/protease.png" alt="Figure from Deep learning guided design of protease substrates"></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://www.nature.com/articles/s41467-025-67226-1">Deep learning guided design of protease substrates</a></div>
+                    <div class="paper_meta">C Martin-Alonso<sup>*</sup>, <b class="me_first">S Alamdari</b><sup>*</sup>, TS Samad, KK Yang, SN Bhatia<sup>&dagger;</sup>, AP Amini<sup>&dagger;</sup> &middot; Nature Communications, 2026</div>
+                    <div class="paper_links"><a href="https://www.nature.com/articles/s41467-025-67226-1">Paper</a><a href="https://github.com/microsoft/cleavenet">Code</a><a href="https://news.mit.edu/2026/ai-generated-sensors-open-new-paths-early-cancer-detection">Press</a></div>
+                </div>
+            </li>
+        </ul>
+            </section>
+            <section class="area_sec" id="simulation" style="--blue:#2b7794;--blue-dark:#256883;--tint:rgba(108,178,206,0.48);">
+                <h2 class="topic_title">Molecular Simulation</h2>
+                <p class="topic_body">
+            During my Ph.D. I developed and applied enhanced sampling methods such as
+            metadynamics and parallel bias metadynamics to probe the
+            interfacial phenomena that govern biological processes at the microscale.
+            This work combined molecular dynamics simulation with experiment to
+            understand biomolecules in various contexts such as peptoid self-assembly, protein behavior at the air-water
+            interface, and biomolecular adsorption to mineral surfaces.
+        </p>
+                <p class="papers_heading">Selected publications</p>
+        <ul class="papers papers_thumbs">
+            <li>
+                <a class="paper_thumb" href="https://doi.org/10.1021/acs.jpcb.3c02576"><img src="img/papers/peptoid-heterogeneity.png" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1021/acs.jpcb.3c02576">Origins of conformational heterogeneity in peptoid helices formed by chiral N-1-phenylethyl sidechains</a></div>
+                    <div class="paper_meta"><b class="me_first">S Alamdari</b>, J Pfaendtner &middot; The Journal of Physical Chemistry B, 2023</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1021/acs.jpcb.3c02576">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb" href="https://doi.org/10.1021/acs.jpcb.3c01913"><img src="img/papers/peptoid-thermo.png" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1021/acs.jpcb.3c01913">Thermodynamic basis for the stabilization of helical peptoids by chiral sidechains</a></div>
+                    <div class="paper_meta"><b class="me_first">S Alamdari</b>, K Torkelson, X Wang, CL Chen, AL Ferguson, J Pfaendtner &middot; The Journal of Physical Chemistry B, 2023</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1021/acs.jpcb.3c01913">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb" href="https://doi.org/10.1021/acs.biomac.3c00107"><img src="img/papers/peptoid-nanosheets.png" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1021/acs.biomac.3c00107">Computational and experimental determination of the properties, structure, and stability of peptoid nanosheets and nanotubes</a></div>
+                    <div class="paper_meta">M Zhao, S Zhang, R Zheng, <b>S Alamdari</b>, CJ Mundy, J Pfaendtner, LD Pozzo, CL Chen, JJ De Yoreo, AL Ferguson &middot; Biomacromolecules, 2023</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1021/acs.biomac.3c00107">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb" href="https://doi.org/10.1021/acs.langmuir.2c00918"><img src="img/papers/silicatein.png" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1021/acs.langmuir.2c00918">Peptide mimic of the marine sponge protein silicatein fabricates ultrathin nanosheets of silicon dioxide and titanium dioxide</a></div>
+                    <div class="paper_meta">K Strunge, N Hoinkis, H Lutz, <b>S Alamdari</b>, SJ Roeters, H Lu, J Pfaendtner, T Weidner &middot; Langmuir, 2022</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1021/acs.langmuir.2c00918">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb" href="https://doi.org/10.1021/acs.biomac.1c01385"><img src="img/papers/peptoid-selfassembly.png" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1021/acs.biomac.1c01385">Hierarchical self-assembly pathways of peptoid helices and sheets</a></div>
+                    <div class="paper_meta">M Zhao, KJ Lachowski, S Zhang, <b>S Alamdari</b>, J Sampath, P Mu, CJ Mundy, J Pfaendtner, JJ De Yoreo, CL Chen, LD Pozzo, AL Ferguson &middot; Biomacromolecules, 2022</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1021/acs.biomac.1c01385">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb" href="https://doi.org/10.1093/protein/gzab031"><img src="img/papers/e1-substitution.jpeg" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1093/protein/gzab031">Substitution of distal and active site residues reduces product inhibition of E1 from Acidothermus cellulolyticus</a></div>
+                    <div class="paper_meta">SR Summers<sup>*</sup>, <b class="me_first">S Alamdari</b><sup>*</sup>, CJ Kraft, R Brunecky, J Pfaendtner, JL Kaar &middot; Protein Engineering, Design and Selection, 2021</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1093/protein/gzab031">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb" href="https://doi.org/10.1007/978-981-33-6639-8_6"><img src="img/papers/pbmetad-review.webp" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1007/978-981-33-6639-8_6">Efficient sampling of high-dimensional free energy landscapes: a review of parallel bias metadynamics</a></div>
+                    <div class="paper_meta"><b class="me_first">S Alamdari</b>, J Sampath, A Prakash, LD Gibson, J Pfaendtner &middot; Foundations of Molecular Modeling and Simulation, 2021</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1007/978-981-33-6639-8_6">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb" href="https://doi.org/10.1021/acs.langmuir.0c01881"><img src="img/papers/air-water.png" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1021/acs.langmuir.0c01881">Orientation and conformation of proteins at the air&ndash;water interface from integrative molecular dynamics simulations and sum frequency generation spectroscopy</a></div>
+                    <div class="paper_meta"><b class="me_first">S Alamdari</b>, SJ Roeters, TW Golbek, L Schmüser, T Weidner, J Pfaendtner &middot; Langmuir, 2020</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1021/acs.langmuir.0c01881">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb" href="https://doi.org/10.1021/acs.chemmater.0c01891"><img src="img/papers/closing-gap.png" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1021/acs.chemmater.0c01891">Closing the gap between modeling and experiments in the self-assembly of biomolecules at interfaces and in solution</a></div>
+                    <div class="paper_meta">J Sampath, <b>S Alamdari</b>, J Pfaendtner &middot; Chemistry of Materials, 2020</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1021/acs.chemmater.0c01891">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb" href="https://doi.org/10.1021/acs.jpcb.0c04567"><img src="img/papers/martini-peptoids.svg" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1021/acs.jpcb.0c04567">MARTINI-compatible coarse-grained model for the mesoscale simulation of peptoids</a></div>
+                    <div class="paper_meta">M Zhao, J Sampath, <b>S Alamdari</b>, G Shen, CL Chen, CJ Mundy, J Pfaendtner, AL Ferguson &middot; The Journal of Physical Chemistry B, 2020</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1021/acs.jpcb.0c04567">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb" href="https://doi.org/10.1021/acssuschemeng.0c03242"><img src="img/papers/endoglucanase.png" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1021/acssuschemeng.0c03242">Enhanced activity and stability of Acidothermus cellulolyticus endoglucanase 1 in ionic liquids via engineering active site residues and non-native disulfide bridges</a></div>
+                    <div class="paper_meta">S Summers, C Kraft, <b>S Alamdari</b>, J Pfaendtner, JL Kaar &middot; ACS Sustainable Chemistry &amp; Engineering, 2020</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1021/acssuschemeng.0c03242">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb" href="https://doi.org/10.1021/jacs.9b11617"><img src="img/papers/car9.png" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1021/jacs.9b11617">Sequence&ndash;structure&ndash;binding relationships reveal adhesion behavior of the Car9 solid-binding peptide</a></div>
+                    <div class="paper_meta">B Hellner, <b>S Alamdari</b>, H Pyles, S Zhang, A Prakash, KG Sprenger, JJ De Yoreo, D Baker, J Pfaendtner, F Baneyx &middot; Journal of the American Chemical Society, 2020</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1021/jacs.9b11617">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb" href="https://doi.org/10.1039/c9me00158a"><img src="img/papers/osteocalcin.jpeg" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1039/c9me00158a">Impact of glutamate carboxylation in the adsorption of the &alpha;-1 domain of osteocalcin to hydroxyapatite and titania</a></div>
+                    <div class="paper_meta"><b class="me_first">S Alamdari</b>, J Pfaendtner &middot; Molecular Systems Design &amp; Engineering, 2020</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1039/c9me00158a">Paper</a></div>
+                </div>
+            </li>
+            <li>
+                <a class="paper_thumb" href="https://doi.org/10.1039/c8cp03382j"><img src="img/papers/antifreeze.png" onerror="this.onerror=null;this.src='img/area-simulation.svg';this.parentElement.classList.add('paper_thumb_fallback')" alt=""></a>
+                <div class="paper_info">
+                    <div class="paper_title"><a href="https://doi.org/10.1039/c8cp03382j">Ice-binding site of surface-bound type III antifreeze protein partially decoupled from water</a></div>
+                    <div class="paper_meta">D Verreault, <b>S Alamdari</b>, SJ Roeters, R Pandey, J Pfaendtner, T Weidner &middot; Physical Chemistry Chemical Physics, 2018</div>
+                    <div class="paper_links"><a href="https://doi.org/10.1039/c8cp03382j">Paper</a></div>
+                </div>
+            </li>
+        </ul>
+            </section>
+        </div>
 
         <footer class="contact">
             <span class="contact_label">Get in touch</span>
@@ -74,5 +430,67 @@
             <a href="mailto:salamdari@microsoft.com">Email</a>
         </footer>
     </div>
+
+    <script>
+        const btns = [...document.querySelectorAll('.view_toggle button')];
+        const panels = [...document.querySelectorAll('[data-panel]')];
+        const secs = [...document.querySelectorAll('.area_sec')];
+        const chips = [...document.querySelectorAll('.area_chip')];
+        const sectionIds = secs.map(s => s.id);
+
+        const head = document.querySelector('.sticky_head');
+        function setHeadH() {
+            const stuck = getComputedStyle(head).position === 'sticky';
+            document.documentElement.style.setProperty('--head-h', stuck ? head.offsetHeight + 'px' : '0px');
+        }
+
+        const newsSec = document.querySelector('.news'), newsBtn = document.querySelector('.news_toggle');
+        if (newsBtn) newsBtn.addEventListener('click', () => {
+            const open = newsSec.classList.toggle('expanded');
+            newsBtn.innerHTML = open ? newsBtn.dataset.less : newsBtn.dataset.more;
+            if (!open) window.scrollTo({ top: 0 });
+        });
+
+        function show(view) {
+            btns.forEach(b => b.setAttribute('aria-pressed', b.dataset.view === view));
+            panels.forEach(p => p.hidden = p.dataset.panel !== view);
+            if (view === 'research') update();
+        }
+
+        function update() {
+            if (!secs.length || secs[0].offsetParent === null) return;
+            const top = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--head-h')) || 0;
+            const mid = top + (window.innerHeight - top) * 0.4;
+            let best = secs[0], bestDist = Infinity;
+            for (const s of secs) {
+                const r = s.getBoundingClientRect();
+                const d = (r.top <= mid && r.bottom >= mid) ? 0 : Math.min(Math.abs(r.top - mid), Math.abs(r.bottom - mid));
+                if (d < bestDist) { bestDist = d; best = s; }
+            }
+            secs.forEach(s => s.classList.toggle('active', s === best));
+            chips.forEach(c => c.classList.toggle('active', c.dataset.target === best.id));
+        }
+
+        function route() {
+            const h = location.hash.slice(1);
+            if (sectionIds.includes(h)) {
+                show('research');
+                document.getElementById(h).scrollIntoView({ behavior: 'smooth' });
+            } else {
+                show(['research', 'news'].includes(h) ? h : 'about');
+            }
+        }
+
+        btns.forEach(b => b.addEventListener('click', () => {
+            history.replaceState(null, '', b.dataset.view === 'about' ? location.pathname : '#' + b.dataset.view);
+            show(b.dataset.view);
+            window.scrollTo({ top: 0 });
+        }));
+        window.addEventListener('hashchange', route);
+        window.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', () => { setHeadH(); update(); });
+        setHeadH();
+        route();
+    </script>
 </body>
 </html>
