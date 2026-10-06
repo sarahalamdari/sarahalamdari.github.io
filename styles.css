@@ -25,9 +25,11 @@ a {
     font-weight: 500;
 }
 
-a:hover {
-    color: var(--blue-dark);
-    text-decoration: underline;
+@media (hover: hover) {
+    a:hover {
+        color: var(--blue-dark);
+        text-decoration: underline;
+    }
 }
 
 .container {
@@ -396,9 +398,11 @@ a:hover {
     text-decoration: none;
 }
 
-.paper_links a:hover {
-    text-decoration: underline;
-    text-underline-offset: 3px;
+@media (hover: hover) {
+    .paper_links a:hover {
+        text-decoration: none;
+        color: var(--blue);
+    }
 }
 
 /* ---- Publications with thumbnails ---- */

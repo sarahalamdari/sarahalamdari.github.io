@@ -97,19 +97,21 @@
             border-bottom: 2px solid transparent;
             transition: color .2s ease, border-color .2s ease;
         }
-        .view_toggle button:hover { color: var(--muted); }
+        @media (hover: hover) { .view_toggle button:hover { color: var(--muted); } }
         .view_toggle button[aria-pressed="true"] { color: var(--ink); }
 
         [data-panel][hidden] { display: none; }
         [data-panel] { padding-top: 30px; }
+        [data-panel="research"] { padding-top: 0; }
 
         .area_chips {
             position: sticky; top: var(--head-h, 0px); z-index: 10;
             display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center;
-            padding: 14px 0; margin-bottom: 6px;
+            padding: 24px 0 14px 0; margin-bottom: 6px;
             background: rgba(255,255,255,0.94);
             backdrop-filter: blur(6px);
         }
+        .area_chip, .area_chip:hover, .area_chip:focus, .area_chip:active { text-decoration: none; }
         .area_chip {
             font-family: "Inter", -apple-system, sans-serif;
             font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
@@ -120,7 +122,7 @@
             content: "/"; display: inline-block; margin: 0 10px;
             color: #c4c8cb; font-weight: 400;
         }
-        .area_chip:hover { text-decoration: underline; text-underline-offset: 3px; color: var(--blue-dark); }
+        @media (hover: hover) { .area_chip:hover { color: var(--blue-dark); } }
         .area_chip.active { color: var(--blue-dark); }
 
         .area_sec {
