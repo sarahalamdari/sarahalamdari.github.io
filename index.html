@@ -64,15 +64,15 @@
             top: 0;
             z-index: 30;
             background: #ffffff;
-            padding-top: 48px;
+            padding-top: 28px;
             border-bottom: 1px solid #ececec;
         }
-        .sticky_head .home_menu { margin-top: 0; margin-bottom: 0; }
+        [data-panel="about"] .home_menu { margin: 0 0 30px 0; }
 
         .head_grid {
             display: grid;
             grid-template-columns: auto 1fr;
-            grid-template-areas: "photo text" "toggle toggle";
+            grid-template-areas: "photo text";
             column-gap: 30px;
             row-gap: 6px;
             align-items: center;
@@ -80,7 +80,6 @@
         .head_grid .home_photo { grid-area: photo; }
         .head_grid .head_text { grid-area: text; min-width: 0; }
         .head_grid .links { margin-top: 12px; }
-        .head_grid .view_toggle { grid-area: toggle; }
 
         .view_toggle {
             display: flex; gap: 24px;
@@ -137,15 +136,13 @@
         .area_sec .papers_heading { margin-top: 30px; }
 
         @media (max-width: 768px) {
-            .sticky_head { position: static; padding-top: 48px; }
-            .area_chips { top: 0; }
-            .area_sec { scroll-margin-top: calc(var(--nav-h, 0px) - 2px); }
         }
         @media (max-width: 768px) {
             .head_grid { column-gap: 18px; row-gap: 14px; }
-            .head_grid .view_toggle { justify-content: flex-end; }
+            .sticky_head { padding-top: 18px; }
             .view_toggle button { font-size: 18px; }
-            .area_chip { font-size: 11px; }
+            .area_chip { font-size: 12px; }
+            .container > .contact { position: static; }
             .area_sec .topic_title { font-size: 19px; }
         }
     </style>
@@ -153,6 +150,14 @@
 <body>
     <div class="container">
         <div class="sticky_head">
+        <div class="view_toggle" role="tablist">
+                        <button type="button" data-view="about" aria-pressed="true">About</button>
+                        <button type="button" data-view="research" aria-pressed="false">Research</button>
+                        <button type="button" data-view="news" aria-pressed="false">News</button>
+                    </div>
+        </div>
+
+        <div data-panel="about">
         <div class="home_menu">
             <div class="head_grid">
                 <img class="home_photo" src="img/profile.jpg" alt="Sarah Alamdari">
@@ -165,16 +170,8 @@
                         <a href="https://github.com/sarahalamdari">GitHub</a>
                     </nav>
                 </div>
-                <div class="view_toggle" role="tablist">
-                        <button type="button" data-view="about" aria-pressed="true">About</button>
-                        <button type="button" data-view="research" aria-pressed="false">Research</button>
-                        <button type="button" data-view="news" aria-pressed="false">News</button>
-                    </div>
             </div>
         </div>
-        </div>
-
-        <div data-panel="about">
         <div class="about">
             <p class="home_body">
                 I am a Senior Applied Scientist at <a href="https://www.microsoft.com/en-us/research/">Microsoft Research</a> on the <a href="https://www.microsoft.com/en-us/research/theme/biomedical-ml/">BioML team</a>, where I build <a href="#protein-design">generative AI models that design new, functional proteins</a>; including <a href="https://elifesciences.org/reviewed-preprints/112029">EvoDiff</a>, one of the first models to bring discrete diffusion to <a href="https://techcrunch.com/2023/09/14/microsoft-open-sources-evodiff-a-novel-protein-generating-ai/">protein sequence design</a>, followed by <a href="https://www.biorxiv.org/content/10.1101/2025.07.21.665991">the Dayhoff Atlas</a>, which scaled sequence diversity to improve protein generation, and <a href="https://www.nature.com/articles/s41467-025-67226-1">CleaveNet</a>, which applied deep learning to design protease substrates for <a href="https://news.mit.edu/2026/ai-generated-sensors-open-new-paths-early-cancer-detection">early cancer detection</a>.
@@ -193,7 +190,7 @@
         </div>
 
         <div data-panel="research" hidden>
-            <nav class="area_chips"><a class="area_chip" href="#protein-design" data-target="protein-design" style="--blue:#c24d30;--blue-dark:#b23a25;--tint:rgba(208,86,66,0.48);">Generative Protein Design</a><a class="area_chip" href="#protein-function" data-target="protein-function" style="--blue:#b5850f;--blue-dark:#a5760e;--tint:rgba(240,192,82,0.5);">Learning Protein Function</a><a class="area_chip" href="#simulation" data-target="simulation" style="--blue:#2b7794;--blue-dark:#256883;--tint:rgba(108,178,206,0.48);">Molecular Simulation</a></nav>
+            <nav class="area_chips"><a class="area_chip" href="#protein-design" data-target="protein-design" style="--blue:#c24d30;--blue-dark:#b23a25;--tint:rgba(208,86,66,0.48);" aria-label="Generative Protein Design">Design</a><a class="area_chip" href="#protein-function" data-target="protein-function" style="--blue:#b5850f;--blue-dark:#a5760e;--tint:rgba(240,192,82,0.5);" aria-label="Learning Protein Function">Function</a><a class="area_chip" href="#simulation" data-target="simulation" style="--blue:#2b7794;--blue-dark:#256883;--tint:rgba(108,178,206,0.48);" aria-label="Molecular Simulation">Simulation</a></nav>
             
             <section class="area_sec" id="protein-design" style="--blue:#c24d30;--blue-dark:#b23a25;--tint:rgba(208,86,66,0.48);">
                 <h2 class="topic_title">Generative Protein Design</h2>
@@ -441,8 +438,7 @@
 
         const head = document.querySelector('.sticky_head');
         function setHeadH() {
-            const stuck = getComputedStyle(head).position === 'sticky';
-            document.documentElement.style.setProperty('--head-h', stuck ? head.offsetHeight + 'px' : '0px');
+            document.documentElement.style.setProperty('--head-h', head.offsetHeight + 'px');
             const nav = document.querySelector('.area_chips');
             if (nav && nav.offsetHeight) document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
         }
