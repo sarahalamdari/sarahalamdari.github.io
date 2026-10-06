@@ -45,12 +45,11 @@
         .news_list li:first-child { border-top: 0; }
         .news_tag {
             justify-self: start;
-            font: 600 9.5px Inter, sans-serif; letter-spacing: 0.06em; text-transform: uppercase;
-            padding: 3px 7px; border-radius: 4px; position: relative; top: -1px;
+            font: 600 11px Inter, sans-serif; letter-spacing: 0.06em; text-transform: uppercase;
         }
-        .news_paper { background: #e6eefa; color: #124d99; }
-        .news_talk { background: #f1ece4; color: #7a5a2e; }
-        .news_workshop { background: #e7f1ec; color: #2f6b4f; }
+        .news_paper { color: #124d99; }
+        .news_talk { color: #7a5a2e; }
+        .news_workshop { color: #2f6b4f; }
 
         .container > .contact {
             position: sticky; bottom: 0; z-index: 30;
@@ -100,32 +99,34 @@
             transition: color .2s ease, border-color .2s ease;
         }
         .view_toggle button:hover { color: var(--muted); }
-        .view_toggle button[aria-pressed="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+        .view_toggle button[aria-pressed="true"] { color: var(--ink); }
 
         [data-panel][hidden] { display: none; }
         [data-panel] { padding-top: 30px; }
 
         .area_chips {
             position: sticky; top: var(--head-h, 0px); z-index: 10;
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
-            padding: 12px 0; margin-bottom: 6px;
+            display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center;
+            padding: 14px 0; margin-bottom: 6px;
             background: rgba(255,255,255,0.94);
             backdrop-filter: blur(6px);
         }
         .area_chip {
-            display: flex; align-items: center; justify-content: center; text-align: center;
-            min-height: 44px; padding: 8px 10px; border-radius: 10px;
-            font-family: var(--serif); font-size: 14px; font-weight: 600; line-height: 1.25;
-            color: #9aa1a6; background: #f4f4f4;
-            text-decoration: none;
-            transition: background .35s ease, color .35s ease;
+            font-family: "Inter", -apple-system, sans-serif;
+            font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+            color: #9aa1a6; text-decoration: none;
+            transition: color .35s ease;
         }
-        .area_chip:hover { text-decoration: none; color: var(--blue-dark); }
-        .area_chip.active { background: var(--tint); color: var(--blue-dark); }
+        .area_chip + .area_chip::before {
+            content: "/"; display: inline-block; margin: 0 10px;
+            color: #c4c8cb; font-weight: 400;
+        }
+        .area_chip:hover { text-decoration: underline; text-underline-offset: 3px; color: var(--blue-dark); }
+        .area_chip.active { color: var(--blue-dark); }
 
         .area_sec {
             padding: 30px 0 34px 0;
-            scroll-margin-top: calc(var(--head-h, 0px) + 70px);
+            scroll-margin-top: calc(var(--head-h, 0px) + var(--nav-h, 0px) - 2px);
             opacity: 0.32;
             filter: saturate(0.15);
             transition: opacity .55s ease, filter .55s ease;
@@ -138,13 +139,13 @@
         @media (max-width: 768px) {
             .sticky_head { position: static; padding-top: 48px; }
             .area_chips { top: 0; }
-            .area_sec { scroll-margin-top: 70px; }
+            .area_sec { scroll-margin-top: calc(var(--nav-h, 0px) - 2px); }
         }
         @media (max-width: 768px) {
             .head_grid { column-gap: 18px; row-gap: 14px; }
-            .head_grid .view_toggle { justify-content: flex-start; }
+            .head_grid .view_toggle { justify-content: flex-end; }
             .view_toggle button { font-size: 18px; }
-            .area_chip { font-size: 12.5px; min-height: 40px; padding: 6px; }
+            .area_chip { font-size: 11px; }
             .area_sec .topic_title { font-size: 19px; }
         }
     </style>
@@ -188,7 +189,7 @@
         </div>
 
         <div data-panel="news" hidden>
-        <section class="news"><div class="news_group"><h2 class="news_year">2026</h2><ul class="news_list"><li><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://doi.org/10.64898/2026.02.23.707496">FLIP2</a>, a benchmark of protein fitness prediction under realistic distribution shifts, accepted to <i>ICML 2026</i> as an oral presentation (top ~3% of submissions).</span></li><li><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://www.nature.com/articles/s41467-025-67226-1">CleaveNet</a>, AI-designed protease substrates for cancer-detecting sensors, published in <i>Nature Communications</i>; featured in <a href="https://news.mit.edu/2026/ai-generated-sensors-open-new-paths-early-cancer-detection">MIT News</a>.</span></li><li><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://elifesciences.org/reviewed-preprints/112029">EvoDiff</a>, diffusion over evolutionary-scale sequence data for protein design, published in <i>eLife</i> after a 3-year review process.</span></li><li><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://doi.org/10.1016/j.sbi.2026.103272">Closing the loop</a>, a review of experimentally validated AI protein design, in <i>Curr. Opin. Struct. Biol.</i></span></li><li><span class="news_tag news_talk">Talk</span><span class="news_text">Sequence-based approaches to protein design &middot; Protein Evolution, Design and Informatics, Biochemical Society (Edinburgh, UK)</span></li></ul></div><div class="news_group"><h2 class="news_year">2025</h2><ul class="news_list"><li><span class="news_tag news_workshop">Workshop</span><span class="news_text">The Dayhoff Atlas selected as a Top 4 paper spotlight talk &middot; Molecular ML Conference (MoML) @ MIT</span></li><li><span class="news_tag news_workshop">Workshop</span><span class="news_text">The Dayhoff Atlas &middot; Machine Learning in Structural Biology (MLSB) Workshop (San Diego, CA)</span></li><li><span class="news_tag news_workshop">Workshop</span><span class="news_text">Augmenting protein language models with synthetic structures &middot; ICLR GEM Workshop (Singapore)</span></li><li><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://www.biorxiv.org/content/10.1101/2025.07.21.665991">The Dayhoff Atlas</a>, a centralized collection of both protein sequence data and generative protein language models, released as a preprint with open datasets and models.</span></li><li><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://doi.org/10.1016/j.sbi.2025.103018">Toward deep learning sequence&ndash;structure co-generation</a>, a review of joint sequence&ndash;structure generative models, published in <i>Curr. Opin. Struct. Biol.</i></span></li><li class="news_more"><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://doi.org/10.1093/bioinformatics/btaf170">ProtNote</a>, zero-shot protein function annotation from text descriptions, published in <i>Bioinformatics</i>.</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">Sequence-based approaches to protein design &middot; AI4Science Seminar, Chalmers University (Gothenburg, Sweden)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">Protein design in sequence space &middot; 39th Annual Symposium of The Protein Society (San Francisco, CA)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">Generative sequence-based approaches to protein design &middot; Schr&ouml;dinger Biologics Symposium (Cambridge, MA)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">EvoDiff: a general-purpose diffusion framework for sequence-first protein design &middot; Applied ML Days, EPFL (Lausanne, Switzerland)</span></li></ul></div><div class="news_group news_more"><h2 class="news_year">2024</h2><ul class="news_list"><li class="news_more"><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://www.nature.com/articles/s41467-024-45051-2">FoldingDiff</a>, protein backbone generation by diffusing over internal angles, published in <i>Nature Communications</i>.</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">Discrete diffusion models for generative protein design &middot; Boston Protein Design and Modeling Club (Cambridge, MA)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">In-silico design of protease-cleavable peptide substrates &middot; Gordon Research Conference on Proteolytic Enzymes (Lucca, Italy)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">AI-driven revolutions in protein engineering &middot; SynBioBeta (San Jose, CA)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">Discrete diffusion models for controllable protein generation &middot; Molecular ML Reading Group, Rosetta Commons</span></li></ul></div><div class="news_group news_more"><h2 class="news_year">2023</h2><ul class="news_list"><li class="news_more"><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://www.biorxiv.org/content/10.1101/2023.09.11.556673">EvoDiff</a>, generative protein design in sequence space with discrete diffusion: preprint and open-source release; featured in <a href="https://techcrunch.com/2023/09/14/microsoft-open-sources-evodiff-a-novel-protein-generating-ai/">TechCrunch</a>.</span></li><li class="news_more"><span class="news_tag news_workshop">Workshop</span><span class="news_text">EvoDiff selected as a spotlight talk &middot; NeurIPS Machine Learning in Structural Biology (MLSB) Workshop (New Orleans, LA)</span></li><li class="news_more"><span class="news_tag news_workshop">Workshop</span><span class="news_text">EvoDiff &middot; NeurIPS Generative AI and Biology (GenBio) Workshop (New Orleans, LA)</span></li><li class="news_more"><span class="news_tag news_workshop">Workshop</span><span class="news_text">EvoDiff &middot; Molecular ML Conference (MoML) @ MIT (Cambridge, MA)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">An introduction to diffusion models &middot; Models, Inference &amp; Algorithms Seminar, Broad Institute (Cambridge, MA)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">Protein sequence generation with evolutionary diffusion &middot; Google Research (Cambridge, MA)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">Discrete diffusion models for controllable protein generation &middot; ML Ideas, Microsoft Research (Cambridge, MA)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">Sequence-first generative approaches for protein design &middot; AstraZeneca Journal Club</span></li></ul></div><button type="button" class="news_toggle" data-more="Show all news &darr;" data-less="Show less &uarr;">Show all news &darr;</button></section>
+        <section class="news"><div class="news_group"><h2 class="news_year">2026</h2><ul class="news_list"><li><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://doi.org/10.64898/2026.02.23.707496">FLIP2</a>, a benchmark of protein fitness prediction under realistic distribution shifts, accepted to <i>ICML 2026</i> as an oral presentation (top ~3% of submissions).</span></li><li><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://www.nature.com/articles/s41467-025-67226-1">CleaveNet</a>, AI-designed protease substrates for cancer-detecting sensors, published in <i>Nature Communications</i>; featured in <a href="https://news.mit.edu/2026/ai-generated-sensors-open-new-paths-early-cancer-detection">MIT News</a>.</span></li><li><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://elifesciences.org/reviewed-preprints/112029">EvoDiff</a>, diffusion over evolutionary-scale sequence data for protein design, published in <i>eLife</i> after a 3-year review process.</span></li><li><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://doi.org/10.1016/j.sbi.2026.103272">Closing the loop</a>, a review of experimentally validated AI protein design, in <i>Current Opinion in Structural Biology</i></span></li><li><span class="news_tag news_talk">Talk</span><span class="news_text">Sequence-based approaches to protein design &middot; Protein Evolution, Design and Informatics, Biochemical Society (Edinburgh, UK)</span></li></ul></div><div class="news_group"><h2 class="news_year">2025</h2><ul class="news_list"><li><span class="news_tag news_workshop">Workshop</span><span class="news_text">The Dayhoff Atlas selected as a Top 4 paper spotlight talk &middot; Molecular ML Conference (MoML) @ MIT</span></li><li><span class="news_tag news_workshop">Workshop</span><span class="news_text">The Dayhoff Atlas &middot; Machine Learning in Structural Biology (MLSB) Workshop (San Diego, CA)</span></li><li><span class="news_tag news_workshop">Workshop</span><span class="news_text">Augmenting protein language models with synthetic structures &middot; ICLR GEM Workshop (Singapore)</span></li><li><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://www.biorxiv.org/content/10.1101/2025.07.21.665991">The Dayhoff Atlas</a>, a centralized collection of both protein sequence data and generative protein language models, released as a preprint with open datasets and models.</span></li><li><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://doi.org/10.1016/j.sbi.2025.103018">Toward deep learning sequence&ndash;structure co-generation</a>, a review of joint sequence&ndash;structure generative models, published in <i>Current Opinion in Structural Biology</i></span></li><li class="news_more"><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://doi.org/10.1093/bioinformatics/btaf170">ProtNote</a>, zero-shot protein function annotation from text descriptions, published in <i>Bioinformatics</i>.</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">Sequence-based approaches to protein design &middot; AI4Science Seminar, Chalmers University (Gothenburg, Sweden)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">Protein design in sequence space &middot; 39th Annual Symposium of The Protein Society (San Francisco, CA)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">Generative sequence-based approaches to protein design &middot; Schr&ouml;dinger Biologics Symposium (Cambridge, MA)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">EvoDiff: a general-purpose diffusion framework for sequence-first protein design &middot; Applied ML Days, EPFL (Lausanne, Switzerland)</span></li></ul></div><div class="news_group news_more"><h2 class="news_year">2024</h2><ul class="news_list"><li class="news_more"><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://www.nature.com/articles/s41467-024-45051-2">FoldingDiff</a>, protein backbone generation by diffusing over internal angles, published in <i>Nature Communications</i>.</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">Discrete diffusion models for generative protein design &middot; Boston Protein Design and Modeling Club (Cambridge, MA)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">In-silico design of protease-cleavable peptide substrates &middot; Gordon Research Conference on Proteolytic Enzymes (Lucca, Italy)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">AI-driven revolutions in protein engineering &middot; SynBioBeta (San Jose, CA)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">Discrete diffusion models for controllable protein generation &middot; Molecular ML Reading Group, Rosetta Commons</span></li></ul></div><div class="news_group news_more"><h2 class="news_year">2023</h2><ul class="news_list"><li class="news_more"><span class="news_tag news_paper">Paper</span><span class="news_text"><a href="https://www.biorxiv.org/content/10.1101/2023.09.11.556673">EvoDiff</a>, generative protein design in sequence space with discrete diffusion: preprint and open-source release; featured in <a href="https://techcrunch.com/2023/09/14/microsoft-open-sources-evodiff-a-novel-protein-generating-ai/">TechCrunch</a>.</span></li><li class="news_more"><span class="news_tag news_workshop">Workshop</span><span class="news_text">EvoDiff selected as a spotlight talk &middot; NeurIPS Machine Learning in Structural Biology (MLSB) Workshop (New Orleans, LA)</span></li><li class="news_more"><span class="news_tag news_workshop">Workshop</span><span class="news_text">EvoDiff &middot; NeurIPS Generative AI and Biology (GenBio) Workshop (New Orleans, LA)</span></li><li class="news_more"><span class="news_tag news_workshop">Workshop</span><span class="news_text">EvoDiff &middot; Molecular ML Conference (MoML) @ MIT (Cambridge, MA)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">An introduction to diffusion models &middot; Models, Inference &amp; Algorithms Seminar, Broad Institute (Cambridge, MA)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">Protein sequence generation with evolutionary diffusion &middot; Google Research (Cambridge, MA)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">Discrete diffusion models for controllable protein generation &middot; ML Ideas, Microsoft Research (Cambridge, MA)</span></li><li class="news_more"><span class="news_tag news_talk">Talk</span><span class="news_text">Sequence-first generative approaches for protein design &middot; AstraZeneca Journal Club</span></li></ul></div><button type="button" class="news_toggle" data-more="Show all news &darr;" data-less="Show less &uarr;">Show all news &darr;</button></section>
         </div>
 
         <div data-panel="research" hidden>
@@ -442,6 +443,8 @@
         function setHeadH() {
             const stuck = getComputedStyle(head).position === 'sticky';
             document.documentElement.style.setProperty('--head-h', stuck ? head.offsetHeight + 'px' : '0px');
+            const nav = document.querySelector('.area_chips');
+            if (nav && nav.offsetHeight) document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
         }
 
         const newsSec = document.querySelector('.news'), newsBtn = document.querySelector('.news_toggle');
@@ -454,7 +457,7 @@
         function show(view) {
             btns.forEach(b => b.setAttribute('aria-pressed', b.dataset.view === view));
             panels.forEach(p => p.hidden = p.dataset.panel !== view);
-            if (view === 'research') update();
+            if (view === 'research') { setHeadH(); update(); }
         }
 
         function update() {

@@ -353,7 +353,15 @@ a:hover {
     margin-top: 8px;
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 0;
+}
+
+.paper_links a + a::before {
+    content: "/";
+    display: inline-block;
+    margin: 0 8px;
+    color: var(--muted);
+    font-weight: 400;
 }
 
 .paper_note {
@@ -386,16 +394,11 @@ a:hover {
     text-transform: uppercase;
     color: var(--blue-dark);
     text-decoration: none;
-    padding: 3px 10px;
-    border: 1px solid color-mix(in srgb, var(--blue) 32%, #ffffff);
-    border-radius: 20px;
-    background: color-mix(in srgb, var(--blue) 14%, #ffffff);
-    transition: border-color 0.15s ease, background 0.15s ease;
 }
 
 .paper_links a:hover {
-    border-color: var(--blue);
-    background: color-mix(in srgb, var(--blue) 24%, #ffffff);
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 /* ---- Publications with thumbnails ---- */
